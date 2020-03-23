@@ -1,0 +1,23 @@
+---
+title: "Covid-19"
+output: pdf_document
+---
+
+```{r}
+data = read.csv("https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv")
+```
+
+```{r}
+colnames(data)
+unique(data$Country.Region)
+'Tennessee' %in% data$Province.State
+tndata = data[which(data$Province.State == 'Tennessee'),]
+```
+
+```{r}
+library(googlesheets)
+
+key = extract_key_from_url("https://docs.google.com/spreadsheets/d/14quQPFErG-hlpsrNgYcX85vW7JMMK5X2vNZrafRcH8c/edit#gid=200073018")
+
+```
+
