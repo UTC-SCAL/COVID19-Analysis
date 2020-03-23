@@ -4,6 +4,8 @@ Repository created for the use of Center for Urban Informatics and Progress (CUI
 
 [CUIP Website](https://utccuip.com)
 
+The following links are restricted to CUIP team members. Access permissions are required. 
+
 [Progress Journal](https://docs.google.com/document/d/147hM2IwOg-XLoGsmTAAGc-Wp9O17MJyBLOER3OkSh5o/edit?usp=sharing)
 
 [Related Works and Resources](https://docs.google.com/document/d/1FTlCXfalNeIcH2w1DU8VE0jrEcSNQbiUPefsSTyUaT8/edit?usp=sharing)
