@@ -10,14 +10,47 @@ data = read.csv("https://raw.githubusercontent.com/datasets/covid-19/master/data
 ```{r}
 colnames(data)
 unique(data$Country.Region)
-'Tennessee' %in% data$Province.State
-tndata = data[which(data$Province.State == 'Tennessee'),]
+usdata = data[which(data$Country.Region == 'US'),]
 ```
 
 ```{r}
-library(googlesheets)
+usadat_confirmed = read.csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv")
+tndat_confirmed = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
+```
 
-key = extract_key_from_url("https://docs.google.com/spreadsheets/d/14quQPFErG-hlpsrNgYcX85vW7JMMK5X2vNZrafRcH8c/edit#gid=200073018")
+```{r}
+hamdat_confirmed = tndat_confirmed[which(tndat_confirmed$County.Name == 'Hamilton County'),]
+dropcols = c("countyFIPS","County.Name","State","stateFIPS")
+hamdat = hamdat_confirmed[,!(names(hamdat_confirmed) %in% dropcols)]
+hamdat = as.data.frame(t(hamdat))
+colnames(hamdat) = "Confirmed"
+hamdat$Date = gsub('X', '',rownames(hamdat))
+rownames(hamdat) = seq(1,length(hamdat$Confirmed))
+hamdat$Cumulative = cumsum(as.numeric(hamdat$Confirmed))
 
+hamdat= hamdat[which(hamdat$Date >= '3.1.20'),]
+plot(hamdat$Cumulative, type="l")
+
+plot(hamdat$Cumulative, type="l", ylim=c(0,(max(hamdat$Cumulative)+20)),col='#469990', lwd=4, ylab="Number of Confirmed Cases", xlab="", xlim=c(0,length(hamdat$Date)),main="Hamilton County Cases by Date", xaxt="n", yaxt="n",)
+lines(hamdat$Confirmed, type="l",col='red', lwd=2)
+axis(1, at= seq(1,length(hamdat$Date)), labels = hamdat$Date, las="2")
+axis(2,las="2")
+```
+
+```{r}
+seniors = read.csv("/Users/peteway/Downloads/Sample for UTC.csv")
+
+ages = as.data.frame(table(seniors$Age))
+
+# plot(ages$Var1, ages$Freq, ylim = c(0, 225))
+
+```
+
+```{r}
+business = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/HamiltonCountyBusinessListings2019/HamiltonCountyBusinessListings_2019.csv")
+```
+
+```{r}
+unique(business$SIC.Code)
 ```
 
