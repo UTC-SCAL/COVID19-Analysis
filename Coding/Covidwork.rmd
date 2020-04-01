@@ -8,17 +8,8 @@ data = read.csv("https://raw.githubusercontent.com/datasets/covid-19/master/data
 ```
 
 ```{r}
-colnames(data)
-unique(data$Country.Region)
-usdata = data[which(data$Country.Region == 'US'),]
-```
-
-```{r}
 usadat_confirmed = read.csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv")
 tndata = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
-```
-
-```{r}
 hamdata = tndata[which(tndata$County.Name == 'Hamilton County'),]
 dropcols = c("countyFIPS","County.Name","State","stateFIPS")
 hamdata = hamdata[,!(names(hamdata) %in% dropcols)]
@@ -35,13 +26,38 @@ plot(hamdata$Cumulative, type="l", ylim=c(0,(max(hamdata$Cumulative)+20)),col='#
 lines(hamdata$Confirmed, type="l",col='red', lwd=2)
 axis(1, at= seq(1,length(hamdata$Date)), labels = hamdata$Date, las="2")
 axis(2,las="2")
-```
 
-```{r}
+
 colnames(tndata)
 tndata = tndata[,(names(tndata) %in% c('countyFIPS','X3.29.2020', 'County.Name'))]
 tndata = tndata[which(tndata$countyFIPS > 0),]
 tndata = tndata[,(names(tndata) %in% c('X3.29.2020', 'County.Name'))]
+
+colnames(tndata) = c("COUNTY.NAME","CASES")
+tndata$COUNTY.NAME = gsub(" County", "", tndata$COUNTY.NAME)
+
+colnames(shape) = c("COUNTY.NAME","AREA","POPDEN",'geometry')
+
+merged = merge(tndata, shape, by = c("COUNTY.NAME"))
+merged$CASEDEN = merged$CASES/merged$POPDEN
+
+```
+
+
+
+```{r}
+usadat_confirmed = read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-31-2020.csv")
+tndata = usadat_confirmed[which(usadat_confirmed$Province_State == 'Tennessee'),]
+```
+
+```{r}
+hamdata = tndata[which(tndata$Admin2 == 'Hamilton'),]
+keepcols = c('Admin2','Confirmed','Deaths','Recovered','Active')
+hamdata = hamdata[,(names(hamdata) %in% keepcols)]
+
+```
+
+```{r}
 ```
 
 ```{r}
@@ -52,10 +68,10 @@ shape = read_sf("/Users/peteway/Downloads/TN_counties/TN_counties.shp")
 
 ```{r}
 colnames(shape)
+names(tndata)[names(tndata) == 'Admin2'] <- 'COUNTY.NAME'
+names(tndata)[names(tndata) == 'Confirmed'] <- 'CASES'
 shape = shape[,names(shape) %in% c("NAME","AREA","POP00_SQMI",'geometry')]
 colnames(shape) = c("COUNTY.NAME","AREA","POPDEN",'geometry')
-colnames(tndata) = c("COUNTY.NAME","CASES")
-tndata$COUNTY.NAME = gsub(" County", "", tndata$COUNTY.NAME)
 
 merged = merge(tndata, shape, by = c("COUNTY.NAME"))
 merged$CASEDEN = merged$CASES/merged$POPDEN
@@ -92,7 +108,7 @@ top10 = top10[order(top10$CASEDEN),]
 coul <- rev(brewer.pal(10,"RdYlGn") )
 
 barplot(top10$CASEDEN, main = "10 Highest COVID Virus Density Counties in Tennessee", xlab = "Counties",
-              ylab = "Density of Cases By Population Density",col=coul, ylim=c(0,.5), names.arg = top10$COUNTY.NAME)
+              ylab = "Density of Cases By Population Density",col=coul, ylim=c(0,1), names.arg = top10$COUNTY.NAME)
 
 
 ```
@@ -100,14 +116,14 @@ barplot(top10$CASEDEN, main = "10 Highest COVID Virus Density Counties in Tennes
 
 ```{r}
 # png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/CaseDensity.4.1.png", width=9,height=4,units='in', res=600,bg = 'transparent')
-ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,.5), breaks = seq(0,.5,by=.125),labels = seq(0,.5,by=.125)) + xlab("Longitude") + ylab("Latitude")
+ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,1), breaks = seq(0,1,by=.25),labels = seq(0,1,by=.25)) + xlab("Longitude") + ylab("Latitude")
 # dev.off()
 
 # png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/PopDensity.4.1.png", width=9,height=4,units='in', res=600,bg = 'transparent')
 ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$POPDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","Population Density", limits=c(0,1150), breaks = seq(0,1150,by=230),labels = seq(0,1150,by=230)) + xlab("Longitude") + ylab("Latitude")
 # dev.off()
 
-ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN, alpha = merged$POPDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,.5), breaks = seq(0,.5,by=.125),labels = seq(0,.5,by=.125)) + xlab("Longitude") + ylab("Latitude")
+ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN, alpha = merged$POPDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,1), breaks = seq(0,1,by=.25),labels = seq(0,1,by=.25)) + xlab("Longitude") + ylab("Latitude")
 ```
 
 ```{r}
@@ -116,17 +132,25 @@ popdata = popdata[which(popdata$YEAR == '2020'),]
 popdata = as.data.frame(popdata)
 popdata = popdata[,names(popdata) %in% c("NAMELSAD","TOT_POP")]
 colnames(popdata) = c('COUNTY.NAME','POP')
-popmerged = merge(merged, popdata, by = 'COUNTY.NAME')
+merged = merge(merged, popdata, by = 'COUNTY.NAME')
 ```
 
 ```{r}
-# popmerged$CASEBYPOP = popmerged$CASES/popmerged$POP
-popmerged = popmerged[which(popmerged$CASEBYPOP > 0),]
-ggmap(cda)+ geom_sf(data=popmerged, aes(fill=popmerged$CASEBYPOP), inherit.aes= FALSE) + xlab("Longitude") + ylab("Latitude") + scale_fill_gradient(low = "blue", high = "red","Cases by Population", limits=c(0,.0005), breaks = seq(0,.0005,by=.0001),labels = seq(0,.0005,by=.0001))
+popmerged = data.frame(merged)
+popmerged$CASEBYPOP = popmerged$CASES/popmerged$POP
+popmerged = st_as_sf(popmerged)
+# popmerged = merged[which(merged$CASEBYPOP > 0),]
+ggmap(cda)+ geom_sf(data=popmerged, aes(fill=popmerged$CASEBYPOP), inherit.aes= FALSE) + xlab("Longitude") + ylab("Latitude") + scale_fill_gradient(low = "blue", high = "red","Cases by Population", limits=c(0,.001), breaks = seq(0,.001,by=.00025),labels = seq(0,.001,by=.00025))
 ```
 
 ```{r}
 countytests = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CountyTests.csv")
+countytests$Positive <- as.numeric(countytests$Positive)
+countytests$Negative <- as.numeric(countytests$Negative)
+countytests = countytests[which(!countytests$County.Name %in% c('Total','Unknown','Non-Tennessee Resident')),]
 countytests$Total = countytests$Positive + countytests$Negative
+countytests$Percent = countytests$Positive/countytests$Total
+countytests = countytests[order(-countytests$Percent),]
+barplot(countytests$Percent)
 ```
 

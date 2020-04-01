@@ -17,7 +17,7 @@ Cocke,1,40
 Coffee,1,120
 Crockett,0,17
 Cumberland,11,241
-Davidson,391,"3,885"
+Davidson,391,3885
 DeKalb,4,48
 Decatur,0,30
 Dickson,17,124
@@ -77,7 +77,7 @@ Rutherford,68,817
 Scott,2,38
 Sequatchie,1,16
 Sevier,8,168
-Shelby,428,"1,943"
+Shelby,428,1943
 Smith,2,69
 Stewart,0,43
 Sullivan,13,134
@@ -92,8 +92,8 @@ Washington,14,229
 Wayne,1,17
 Weakley,1,55
 White,1,59
-Williamson,131,"1,097"
+Williamson,131,1097
 Wilson,39,477
-Non-Tennessee Resident,190,"3,847"
-Unknown,307,"4,869"
-Total,"2,239","25,121"
+Non-Tennessee Resident,190,3847
+Unknown,307,4869
+Total,2239,25121
