@@ -15,42 +15,118 @@ usdata = data[which(data$Country.Region == 'US'),]
 
 ```{r}
 usadat_confirmed = read.csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv")
-tndat_confirmed = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
+tndata = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
 ```
 
 ```{r}
-hamdat_confirmed = tndat_confirmed[which(tndat_confirmed$County.Name == 'Hamilton County'),]
+hamdata = tndata[which(tndata$County.Name == 'Hamilton County'),]
 dropcols = c("countyFIPS","County.Name","State","stateFIPS")
-hamdat = hamdat_confirmed[,!(names(hamdat_confirmed) %in% dropcols)]
-hamdat = as.data.frame(t(hamdat))
-colnames(hamdat) = "Confirmed"
-hamdat$Date = gsub('X', '',rownames(hamdat))
-rownames(hamdat) = seq(1,length(hamdat$Confirmed))
-hamdat$Cumulative = cumsum(as.numeric(hamdat$Confirmed))
+hamdata = hamdata[,!(names(hamdata) %in% dropcols)]
+hamdata = as.data.frame(t(hamdata))
+colnames(hamdata) = "Confirmed"
+hamdata$Date = gsub('X', '',rownames(hamdata))
+rownames(hamdata) = seq(1,length(hamdata$Confirmed))
+hamdata$Cumulative = cumsum(as.numeric(hamdata$Confirmed))
 
-hamdat= hamdat[which(hamdat$Date >= '3.1.20'),]
-plot(hamdat$Cumulative, type="l")
+hamdata= hamdata[which(hamdata$Date >= '3.1.20'),]
+plot(hamdata$Cumulative, type="l")
 
-plot(hamdat$Cumulative, type="l", ylim=c(0,(max(hamdat$Cumulative)+20)),col='#469990', lwd=4, ylab="Number of Confirmed Cases", xlab="", xlim=c(0,length(hamdat$Date)),main="Hamilton County Cases by Date", xaxt="n", yaxt="n",)
-lines(hamdat$Confirmed, type="l",col='red', lwd=2)
-axis(1, at= seq(1,length(hamdat$Date)), labels = hamdat$Date, las="2")
+plot(hamdata$Cumulative, type="l", ylim=c(0,(max(hamdata$Cumulative)+20)),col='#469990', lwd=4, ylab="Number of Confirmed Cases", xlab="", xlim=c(0,length(hamdata$Date)),main="Hamilton County Cases by Date", xaxt="n", yaxt="n",)
+lines(hamdata$Confirmed, type="l",col='red', lwd=2)
+axis(1, at= seq(1,length(hamdata$Date)), labels = hamdata$Date, las="2")
 axis(2,las="2")
 ```
 
 ```{r}
-seniors = read.csv("/Users/peteway/Downloads/Sample for UTC.csv")
+colnames(tndata)
+tndata = tndata[,(names(tndata) %in% c('countyFIPS','X3.29.2020', 'County.Name'))]
+tndata = tndata[which(tndata$countyFIPS > 0),]
+tndata = tndata[,(names(tndata) %in% c('X3.29.2020', 'County.Name'))]
+```
 
-ages = as.data.frame(table(seniors$Age))
+```{r}
+library(sf)
+library(sp)
+shape = read_sf("/Users/peteway/Downloads/TN_counties/TN_counties.shp")
+```
 
-# plot(ages$Var1, ages$Freq, ylim = c(0, 225))
+```{r}
+colnames(shape)
+shape = shape[,names(shape) %in% c("NAME","AREA","POP00_SQMI",'geometry')]
+colnames(shape) = c("COUNTY.NAME","AREA","POPDEN",'geometry')
+colnames(tndata) = c("COUNTY.NAME","CASES")
+tndata$COUNTY.NAME = gsub(" County", "", tndata$COUNTY.NAME)
+
+merged = merge(tndata, shape, by = c("COUNTY.NAME"))
+merged$CASEDEN = merged$CASES/merged$POPDEN
+```
+
+```{r}
+merged = st_as_sf(merged)
+box = st_bbox(merged)
+box
+bb<- make_bbox(lat=c(box['ymin'],box['ymax']),lon=c(box['xmin'],box['xmax']))
+bb
+zoomed = calc_zoom(bb)
+zoomed
+cda<-get_stamenmap(bb,zoom=zoomed,maptype="toner-lite", color='bw')
+```
+
+```{r}
+min(merged$CASEDEN)
+max(merged$CASEDEN)
+
+min(merged$POPDEN)
+max(merged$POPDEN)
 
 ```
 
 ```{r}
-business = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/HamiltonCountyBusinessListings2019/HamiltonCountyBusinessListings_2019.csv")
+library(dplyr)
+library(RColorBrewer)
+library
+top10 = top_n(merged, 10, CASEDEN)
+plot(top10$POPDEN, top10$CASEDEN, ylab= "Covid Case Density", xlab="Population Density")
+top10 = top10[order(top10$CASEDEN),]
+
+coul <- rev(brewer.pal(10,"RdYlGn") )
+
+barplot(top10$CASEDEN, main = "10 Highest COVID Virus Density Counties in Tennessee", xlab = "Counties",
+              ylab = "Density of Cases By Population Density",col=coul, ylim=c(0,.5), names.arg = top10$COUNTY.NAME)
+
+
+```
+
+
+```{r}
+# png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/CaseDensity.4.1.png", width=9,height=4,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,.5), breaks = seq(0,.5,by=.125),labels = seq(0,.5,by=.125)) + xlab("Longitude") + ylab("Latitude")
+# dev.off()
+
+# png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/PopDensity.4.1.png", width=9,height=4,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$POPDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","Population Density", limits=c(0,1150), breaks = seq(0,1150,by=230),labels = seq(0,1150,by=230)) + xlab("Longitude") + ylab("Latitude")
+# dev.off()
+
+ggmap(cda)+ geom_sf(data=merged, aes(fill=merged$CASEDEN, alpha = merged$POPDEN), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","COVID-19 Cases per \n Population Density", limits=c(0,.5), breaks = seq(0,.5,by=.125),labels = seq(0,.5,by=.125)) + xlab("Longitude") + ylab("Latitude")
 ```
 
 ```{r}
-unique(business$SIC.Code)
+popdata = st_read("/Users/peteway/Downloads/SHP_GU_CountyPopProjections20182070_TN/GU_CountyPopProjections20182070_TN.shp")
+popdata = popdata[which(popdata$YEAR == '2020'),]
+popdata = as.data.frame(popdata)
+popdata = popdata[,names(popdata) %in% c("NAMELSAD","TOT_POP")]
+colnames(popdata) = c('COUNTY.NAME','POP')
+popmerged = merge(merged, popdata, by = 'COUNTY.NAME')
+```
+
+```{r}
+# popmerged$CASEBYPOP = popmerged$CASES/popmerged$POP
+popmerged = popmerged[which(popmerged$CASEBYPOP > 0),]
+ggmap(cda)+ geom_sf(data=popmerged, aes(fill=popmerged$CASEBYPOP), inherit.aes= FALSE) + xlab("Longitude") + ylab("Latitude") + scale_fill_gradient(low = "blue", high = "red","Cases by Population", limits=c(0,.0005), breaks = seq(0,.0005,by=.0001),labels = seq(0,.0005,by=.0001))
+```
+
+```{r}
+countytests = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CountyTests.csv")
+countytests$Total = countytests$Positive + countytests$Negative
 ```
 
