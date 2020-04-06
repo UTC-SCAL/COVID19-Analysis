@@ -1,0 +1,189 @@
+---
+title: "CovidWork_SocialDistancing"
+output: html_document
+---
+
+```{r}
+socdist = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/Social_Distancing.csv")
+
+colnames(socdist)
+socdist = socdist[which(socdist$STATE_NAME == 'Tennessee'),]
+names(socdist)[names(socdist) == 'county_name'] <- 'COUNTY.NAME'
+
+keep = c('COUNTY.NAME',"grade","n_grade",'daily_distance_diff')
+socdist = socdist[,names(socdist) %in%  keep]
+socdist = socdist[order(socdist$COUNTY.NAME),]
+trimws(socdist$COUNTY.NAME, which = 'right')
+
+```
+
+```{r}
+hosp = st_read("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/TN_MedicalResources/TN_GenMedicalAndSurgicalHospitals_withCounty.shp")
+urg = st_read("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/TN_MedicalResources/TN_UrgentCareFacilities.shp")
+
+unique(hosp$ULTNUM)
+hosp$TYPE = 'Gen'
+urg$TYPE = 'Urg'
+
+colnames(hosp)
+colnames(urg)
+cols = c('NAME','COUNTY','TYPE')
+names(hosp)[names(hosp) == 'CONAME'] <- 'NAME'
+
+hosp = hosp[,names(hosp) %in%  cols]
+urg = urg[,names(urg) %in%  cols]
+
+allhosp = rbind(hosp, urg)
+
+hosptab = as.data.table(table(allhosp$COUNTY, allhosp$TYPE))
+colnames(hosptab) = c("COUNTY.NAME","TYPE","COUNT")
+# hosptab <- data.frame(hosptab, value=TRUE)
+library(reshape)
+hosp.wide <- cast(hosptab, COUNTY.NAME ~ TYPE, fill=FALSE)
+
+mergehosp = merge(towrite, hosp.wide, by = "COUNTY.NAME",all.x=TRUE)
+mergehosp[is.na(mergehosp)] <- 0
+mergehosp$ALLHOSP = mergehosp$Gen + mergehosp$Urg
+
+```
+
+```{r}
+hospbeds = st_read("/Users/peteway/Downloads/Work/HospitalBeds/HospitalBeds.shp")
+hospbeds = hospbeds[which(hospbeds$St == 'TN'),]
+
+colnames(hospbeds)
+keep = c('NAME','UnwelPct','pct65pls','Staffed','Beds','ICUBeds','F_Count','F_Staffed','F_Beds','F_ICUBeds', 'geometry')
+hospbeds = hospbeds[,names(hospbeds) %in% keep ]
+
+names(hospbeds)[names(hospbeds) == 'NAME'] <- 'COUNTY.NAME'
+names(hospbeds)[names(hospbeds) == 'F_COUNT'] <- 'HOSP_COUNT'
+
+# mergehosp = merge(countytests, hospbeds, by = "COUNTY.NAME",all.x=TRUE)
+mergehosp = merge(hospbeds, test, by = "COUNTY.NAME",all.x=TRUE)
+towrite = as.data.frame(mergehosp)
+towrite = towrite[,!names(towrite) %in% c('geometry')]
+
+testing = merge(towrite, socdist, by = "COUNTY.NAME", all.x=TRUE)
+
+# write.csv(towrite, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/MergedData.csv")
+# write.csv(socdist, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/SocData.csv")
+
+```
+
+```{r}
+max(mergehosp$ICUBeds)
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Hospitals.png", width=9,height=4,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=mergehosp, aes(fill=mergehosp$F_Count), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","Hospital Count", limits=c(1,10), breaks = seq(0,11,by=2),labels = seq(0,11,by=2), na.value = "black") + xlab("Longitude") + ylab("Latitude")
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/HospBeds.png", width=9,height=4,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=mergehosp, aes(fill=mergehosp$F_Beds), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","Hospital Beds", limits=c(1,4000), breaks = seq(0,4000,by=1000),labels = seq(0,4000,by=1000), na.value = "black") + xlab("Longitude") + ylab("Latitude")
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/ICUBeds.png", width=9,height=4,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=mergehosp, aes(fill=mergehosp$ICUBeds), inherit.aes= FALSE) + scale_fill_gradient(low = "blue", high = "red","ICU Beds", limits=c(1,400), breaks = seq(0,400,by=100),labels = seq(0,400,by=100), na.value = "black") + xlab("Longitude") + ylab("Latitude")
+dev.off()
+```
+
+```{r}
+mergehosp$Confirmed = as.numeric(mergehosp$Confirmed)
+mergehosp$F_Count = as.numeric(mergehosp$F_Count)
+mergehosp$F_Beds = as.numeric(mergehosp$F_Beds)
+mergehosp$ICUBeds= as.numeric(mergehosp$ICUBeds)
+mergehosp$CasebyHosp = mergehosp$Confirmed/mergehosp$F_Count
+mergehosp$CasebyBeds = mergehosp$Confirmed/mergehosp$F_Beds
+mergehosp$CasebyICU = mergehosp$Confirmed/mergehosp$ICUBeds
+
+testRun = mergehosp[!is.finite(mergehosp)] <- 0
+
+max(mergehosp$CasebyBeds)
+max(mergehosp$CasebyHosp)
+max(mergehosp$CasebyICU)
+```
+
+```{r}
+coul <- rev(brewer.pal(4,"YlOrRd") )
+# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+
+plot(projection$ICUbed_upper, type = "l", col=coul[1], lwd=8, ylab= "ICU Beds", xlab= "", xaxt="n", ylim = c(0,3300), yaxt="n")
+polygon(c(seq(1:181),rev(seq(1:181))),c(projection$ICUbed_upper,rev(projection$ICUbed_lower)),col="red", border = NA)
+
+lines(projection$ICUbed_lower, col=coul[1], lwd=6)
+axis(1, at=seq(1:181), labels=projection$date, las='2')
+axis(2, at=seq(0,3300, by = 825), labels=seq(0,3300, by = 825), las='2')
+abline(v = 44, lwd=4, col = 'gold')
+abline(v = 54, lwd=4, col = coul[3])
+abline(v = 57, lwd=4, col = coul[2])
+abline(h = sum(testing$ICUBeds), lwd=6)
+```
+
+```{r}
+# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+sum(testing$ICUBeds)
+plot(projection$icuover_upper, type = "l", col=coul[3], lwd=6, ylab= "ICU Beds Over Capacity", xlab= "", xaxt="n")
+polygon(c(seq(1:181),rev(seq(1:181))),c(projection$icuover_upper,rev(projection$icuover_lower)),col=coul[1], border = NA)
+# lines(projection$icuover_mean, col=coul[3], lwd=6)
+lines(projection$icuover_lower, col=coul[2], lwd=6)
+axis(1, at=seq(1:181), labels=projection$date, las='2')
+
+# abline(h = sum(testing$ICUBeds), lwd=3)
+```
+
+
+```{r}
+# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+# sum(testing$ICUBeds)
+plot(projection$InvVen_upper, type = "l", col='red', lwd=3, ylab= "Invasive Ventilators Required", xlab= "", xaxt="n")
+lines(projection$InvVen_mean, col='blue', lwd=3)
+lines(projection$InvVen_lower, col='green', lwd=3)
+axis(1, at=seq(1:181), labels=projection$date, las='2')
+# abline(h = sum(testing$ICUBeds), lwd=3)
+```
+
+```{r}
+# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+# sum(testing$ICUBeds)
+plot(projection$deaths_upper, type = "l", col='red', lwd=6, ylab= "Deaths Projected", xlab= "", xaxt="n")
+axis(1, at=seq(1:181), labels=projection$date, las='2')
+# polygon(projection$deaths_upper,projection$deaths_lower,col="skyblue")
+polygon(c(seq(1:181),rev(seq(1:181))),c(projection$deaths_upper,rev(projection$deaths_lower)),col="orange", border = NA)
+lines(projection$deaths_mean, col='purple', lwd=6)
+lines(projection$deaths_lower, col='black', lwd=6)
+# abline(h = sum(testing$ICUBeds), lwd=3)
+```
+
+```{r}
+# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+# sum(testing$ICUBeds)
+plot(projection$totdea_upper, type = "l", col='red', lwd=6, ylab= "Total Deaths Projected", xlab= "", xaxt="n")
+polygon(c(seq(1:181),rev(seq(1:181))),c(projection$totdea_upper,rev(projection$totdea_lower)),col="orange", border = NA)
+
+lines(projection$totdea_mean, col='blue', lwd=6)
+lines(projection$totdea_lower, col='black', lwd=6)
+axis(1, at=seq(1:181), labels=projection$date, las='2')
+# abline(h = sum(testing$ICUBeds), lwd=3)
+```
+
+
+```{r}
+typeof(socdist$COUNTY.NAME)
+typeof(shape$COUNTY.NAME)
+names(shape)[names(shape) == 'NAME'] <- 'COUNTY.NAME' 
+
+socdist$COUNTY.NAME = trimws(socdist$COUNTY.NAME)
+mergedsoc = merge(mergehosp, socdist, by = 'COUNTY.NAME')
+```
+
+```{r}
+# png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/RatingMap.png", width=9,height=9,units='in', res=600,bg = 'transparent')
+ggmap(cda)+ geom_sf(data=mergedsoc, aes(fill=mergedsoc$grade), inherit.aes= FALSE) + xlab("Longitude") + ylab("Latitude") + scale_fill_brewer(type='qual', palette = 'YlOrRd', name = "Social Distancing Grade")
+# dev.off()
+```
+
+```{r}
+ggplot(mergedsoc, aes(fill=grade, y=CASEDEN, x=reorder(COUNTY.NAME, -CASEDEN))) + 
+    geom_bar(position="dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90), axis.ticks = element_blank()) + scale_y_continuous(breaks = seq(0,1.2,by=.2), labels = seq(0,1.2,by=.2), limits = c(0,1.2)) + ylab("Cases by Population Density") + xlab("County") +
+  coord_flip()
+```
+
