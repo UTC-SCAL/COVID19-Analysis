@@ -50,6 +50,10 @@ yesterdate = format(Sys.Date()-1,"%m-%d-%Y")
 
 usadat_confirmed = read.csv(paste("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/",yesterdate,".csv", sep=""))
 tndata = usadat_confirmed[which(usadat_confirmed$Province_State == 'Tennessee'),]
+
+#OR#
+
+usadat_confirmed_time = read.csv("https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
 ```
 
 ```{r}
@@ -208,4 +212,27 @@ ggplot(test, aes(fill=RPL_THEMES, y=TestsbyPop, x=reorder(COUNTY.NAME, -TestsbyP
   coord_flip()
 dev.off()
 ```
+
+```{r}
+library(htmltab)
+##This dataset is updated each day at 2PM
+xpath = "/html/body/div[2]/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[3]/div/div/div/div/div[2]/div/div/div[1]"
+url <- "https://www.tn.gov/health/cedep/ncov.html"
+countytable <- htmltab(doc = url, which = xpath,rm_nodata_cols = F)
+countytable[is.na(countytable)] = 0
+colnames(countytable) = c("County", "Positive","Negative", "Deaths")
+countytable$Negative = gsub( ",", "", as.character(countytable$Negative))
+countytable$Positive = gsub( ",", "", as.character(countytable$Positive))
+countytable$Total = as.numeric(countytable$Positive) + as.numeric(countytable$Negative)
+countytable$PercentPositive = as.numeric(countytable$Positive) / as.numeric(countytable$Total)
+countytable$Mortality = as.numeric(countytable$Death) / as.numeric(countytable$Positive)
+```
+
+```{r}
+library(data.table)
+projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
+
+```
+
+
 

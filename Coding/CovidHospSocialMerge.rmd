@@ -48,7 +48,7 @@ mergehosp$ALLHOSP = mergehosp$Gen + mergehosp$Urg
 ```
 
 ```{r}
-hospbeds = st_read("/Users/peteway/Downloads/Work/HospitalBeds/HospitalBeds.shp")
+hospbeds = st_read("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/HospitalBeds/HospitalBeds.shp")
 hospbeds = hospbeds[which(hospbeds$St == 'TN'),]
 
 colnames(hospbeds)
@@ -104,22 +104,22 @@ max(mergehosp$CasebyICU)
 
 ```{r}
 coul <- rev(brewer.pal(4,"YlOrRd") )
-# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
+projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
+projection = projection[which(projection$location_name == 'Tennessee'),]
+max(projection$ICUbed_upper)
 
-plot(projection$ICUbed_upper, type = "l", col=coul[1], lwd=8, ylab= "ICU Beds", xlab= "", xaxt="n", ylim = c(0,3300), yaxt="n")
+plot(projection$ICUbed_upper, type = "l", col=coul[1], lwd=8, ylab= "ICU Beds", xlab= "", xaxt="n", ylim = c(0,500), yaxt="n")
 polygon(c(seq(1:181),rev(seq(1:181))),c(projection$ICUbed_upper,rev(projection$ICUbed_lower)),col="red", border = NA)
-
 lines(projection$ICUbed_lower, col=coul[1], lwd=6)
 axis(1, at=seq(1:181), labels=projection$date, las='2')
-axis(2, at=seq(0,3300, by = 825), labels=seq(0,3300, by = 825), las='2')
+axis(2, at=seq(0,500, by = 500/5), labels=seq(0,500, by = 500/5), las='2')
 abline(v = 44, lwd=4, col = 'gold')
 abline(v = 54, lwd=4, col = coul[3])
 abline(v = 57, lwd=4, col = coul[2])
-abline(h = sum(testing$ICUBeds), lwd=6)
+# abline(h = sum(testing$ICUBeds), lwd=6)
 ```
 
 ```{r}
-# projection = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/OutbreakProjections/Hospitalization_all_locs.csv")
 sum(testing$ICUBeds)
 plot(projection$icuover_upper, type = "l", col=coul[3], lwd=6, ylab= "ICU Beds Over Capacity", xlab= "", xaxt="n")
 polygon(c(seq(1:181),rev(seq(1:181))),c(projection$icuover_upper,rev(projection$icuover_lower)),col=coul[1], border = NA)
