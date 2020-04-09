@@ -8,7 +8,7 @@ pandas = "*"
 sklearn = "*"
 matplotlib = "*"
 geopandas = "*"
-arcgis.gis = "*"
+arcgis = "*"
 
 [dev-packages]
 autopep8 = "*"

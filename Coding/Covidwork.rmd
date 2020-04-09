@@ -9,7 +9,7 @@ output: pdf_document
 
 ```{r}
 # usadat_confirmed = read.csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv")
-# tndata = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
+tndata = usadat_confirmed[which(usadat_confirmed$State == 'TN'),]
 # hamdata = tndata[which(tndata$County.Name == 'Hamilton County'),]
 # dropcols = c("countyFIPS","County.Name","State","stateFIPS")
 # hamdata = hamdata[,!(names(hamdata) %in% dropcols)]
@@ -54,12 +54,14 @@ tndata = usadat_confirmed[which(usadat_confirmed$Province_State == 'Tennessee'),
 #OR#
 
 usadat_confirmed_time = read.csv("https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
+tndata = usadat_confirmed_time[which(usadat_confirmed_time$Province_State == 'Tennessee'),]
+hamdata = tndata[which(tndata$Admin2 == 'Hamilton'),]
 ```
 
 ```{r}
 hamdata = tndata[which(tndata$Admin2 == 'Hamilton'),]
-keepcols = c('Admin2','Confirmed','Deaths','Recovered','Active')
-hamdata = hamdata[,(names(hamdata) %in% keepcols)]
+# keepcols = c('Admin2','Confirmed','Deaths','Recovered','Active')
+# hamdata = hamdata[,(names(hamdata) %in% keepcols)]
 
 ```
 
@@ -231,7 +233,7 @@ countytable$Mortality = as.numeric(countytable$Death) / as.numeric(countytable$P
 ```{r}
 library(data.table)
 projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
-
+projection = projection[which(projection$location_name == 'Tennessee'),]
 ```
 
 

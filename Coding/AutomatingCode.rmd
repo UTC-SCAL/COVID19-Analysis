@@ -1,0 +1,90 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+library(htmltab)
+library(data.table)
+library(RPostgreSQL)
+
+##This dataset is the count of COVID-19 cases per county in Tennessee, updated each day at 2PM
+library(rvest)
+url <- "https://www.tn.gov/health/cedep/ncov.html"
+webpage <- read_html(url)
+tbls_ls <- webpage %>%
+  html_nodes("table") %>%
+  html_table(fill = TRUE)
+
+for(i in tbls_ls){
+  columns = colnames(i)
+  if(columns == c("County","Positive","Negative","Deaths"))
+  {
+    countytable = i
+    countytable[is.na(countytable)] = 0
+  }
+  
+}
+remove(url, webpage, tbls_ls,i,columns)
+
+#This dataset is the projection of hospital resources necessary for the COVID-19 epidemic in the Tennessee area. 
+projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
+projection = projection[which(projection$location_name == 'Tennessee'),]
+
+#Covid 19 Positive numbers from John Hopkins
+usadat_confirmed_time = read.csv("https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
+tndata = usadat_confirmed_time[which(usadat_confirmed_time$Province_State == 'Tennessee'),]
+hamdata = tndata[which(tndata$Admin2 == 'Hamilton'),]
+
+write.csv(projection, "../Data/OutbreakProjections/IHMEProjections.csv")
+write.csv(tndata, "../Data/CaseData/TNCaseData.csv")
+write.csv(usadat_confirmed_time, "../Data/CaseData/AllUSCaseData.csv")
+write.csv(countytable, "../Data/CaseData/CountyTests.csv")
+```
+
+```{r}
+library(reticulate)
+# use_python("/Users/peteway/.local/share/virtualenvs/COVID19-Analysis-LNCuW-Do/bin/python", required = TRUE)
+use_virtualenv("/Users/peteway/.local/share/virtualenvs/COVID19-Analysis-LNCuW-Do", required = TRUE)
+py_config()
+```
+
+
+```{python}
+import os
+import datetime 
+import pandas 
+from arcgis.gis import GIS
+from arcgis.features import FeatureLayerCollection
+
+##Login to GIS
+gis = GIS()
+
+##ID for the Unacast map 
+id = "ab72fb3e9bf24d9594f0b942718bffeb"
+
+##Gets the content listed at the given id 
+test = gis.content.get(id)
+unacast_layer = FeatureLayerCollection(test.url)
+
+##Pulls the individual layer out of the collection
+layer = unacast_layer.layers
+layer = layer[0]
+
+##Pulls the entire set of data within that layer
+query_result1 = layer.query()
+
+##Converts the query results into a dataframe. 
+frame = query_result1.sdf
+##Date format = 2020-04-06 15:32:29.533999919, so drop the millisec section.
+frame[['last_updated']] = datetime.datetime.strptime((str(max(frame.last_updated)).split(".")[0]), "%Y-%m-%d %H:%M:%S")
+print(frame.last_updated[0])
+
+frame.to_csv("../Data/UnacastSocialDistancing.csv", index=False)
+```
+
+```{r}
+py_config()
+```
+
+

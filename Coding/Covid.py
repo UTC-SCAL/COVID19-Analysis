@@ -1,34 +1,29 @@
 import os
-from  datetime import datetime
+from datetime import datetime
 import pandas 
-import arcgis.gis
-from arcgis.features import FeatureLayer
-from IPython.display import display
-from arcgis.mapping import WebMap
+from arcgis.gis import GIS
+from arcgis.features import FeatureLayerCollection
 
-# Log into ArcGIS Online
-gis = arcgis.gis.GIS("home")
+##Login to GIS
+gis = GIS()
 
-gis = arcgis.gis.GIS()
+##ID for the Unacast map 
+id = "ab72fb3e9bf24d9594f0b942718bffeb"
 
+##Gets the content listed at the given id 
+test = gis.content.get(id)
+unacast_layer = FeatureLayerCollection(test.url)
 
-search_result = gis.content.search("title:Unacast County by County Grade for Social Distancing, owner:UOdocent", item_type = "Web Map")
-display(search_result)
+##Pulls the individual layer out of the collection
+layer = unacast_layer.layers
+layer = layer[0]
 
-layer = search_result[0]
+##Pulls the entire set of data within that layer
+query_result1 = layer.query()
 
-web_map_obj = WebMap(layer)
-
-num=1
-for lyr in web_map_obj.layers:
-    print(num, "\n")
-    print(lyr.title + " " + lyr.url)
-    print(lyr.properties.capabilities)
-    num = num+1
-
-# print(my_content)
-
-# layer = FeatureLayer(url = "https://disasterresponse.maps.arcgis.com/sharing/rest/content/items/ab72fb3e9bf24d9594f0b942718bffeb/info/metadata/metadata.xml?format=default&output=html")
-
-# print(layer)
-
+##Converts the query results into a dataframe. 
+frame = query_result1.sdf
+##Date format = 2020-04-06 15:32:29.533999919, so drop the millisec section.
+frame[['last_updated']] = datetime.strptime((str(max(frame.last_updated)).split(".")[0]), "%Y-%m-%d %H:%M:%S")
+print(frame.last_updated[0])
+frame.to_csv("../Data/UnacastSocialDistancing.csv", index=False)
