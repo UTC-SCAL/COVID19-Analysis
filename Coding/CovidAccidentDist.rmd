@@ -1,0 +1,678 @@
+---
+title: "InjuryDistribution"
+output: pdf_document
+---
+
+```{r}
+library(sf)
+library(raster)
+library(dplyr)
+library(tidyr)
+library(lubridate)
+accidents = read.csv("/Users/peteway/Documents/GitHub/SCAL_USIgnite-911/Excel & CSV Sheets/Grid Hex Layout/Accidents/RawAccidentData_DropDups.csv")
+accidents = accidents %>% separate(Response.Date, c("Date","Time"), sep = " ")
+accidents$Month = month(as.Date(accidents$Date, format = "%m/%d/%y"))
+accidents = accidents[which(accidents$Month < 5 & accidents$Month > 1),]
+accidents$Year = year(as.Date(accidents$Date, format = "%m/%d/%y"))
+accidents$Problem = gsub("ACC([0-9]+)-MVC", "\\1", accidents$Problem)
+accidents$Problem = gsub("MVC ", "\\1", accidents$Problem)
+accidents$Problem = gsub("ACCDEL-MVC ", "\\1", accidents$Problem)
+accidents$Problem = gsub("ACCDEL-", "\\1", accidents$Problem)
+accidents$Problem = gsub("[0-9] ", "\\1", accidents$Problem)
+length(unique(accidents$Problem))
+
+coordinates(accidents) = ~Longitude+Latitude
+geo.prj <- "+proj=longlat"
+proj4string(accidents)<- CRS(geo.prj)
+accidents = st_as_sf(accidents)
+
+accidents$Time = hm(accidents$Time)
+accidents$Hour = hour(accidents$Time)
+```
+
+```{r}
+library(ggplot2)
+cutacc = accidents[which(accidents$Month < 5),]
+accbyyear = as.data.frame(table(cutacc$Year))
+colnames(accbyyear) = c("Year","Accidents")
+
+# png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/AccidentsJan-AprbyYear.png", width=9,height=4.5,units='in', res=600,bg = 'transparent')
+ggplot(data = accbyyear, aes(x= Year, y= Accidents, fill = Year)) +
+  geom_bar(stat = "identity") + coord_cartesian(ylim=c(4000,6250)) + ggtitle("Accidents Jan-April by Year")
+# dev.off()
+# barplot(accbyyear$Accidents, ylim = c(4000,6500))
+```
+
+
+
+```{r}
+library(sf)
+library(raster)
+library(tidyverse)
+library(lubridate)
+traffic = read.csv("https://internal.chattadata.org/api/views/fpgh-69ti/rows.csv?accessType=DOWNLOAD")
+
+traffic$geom = gsub("POINT \\(", "\\1", traffic$geom)
+traffic$geom = gsub(")", "\\1", traffic$geom)
+
+traffic = separate(traffic, col = 'geom', into = c('Longitude','Latitude'), sep = " ", convert = TRUE)
+sapply(traffic, class)
+coordinates(traffic) = ~Longitude+Latitude
+geo.prj <- "+proj=longlat"
+proj4string(traffic)<- CRS(geo.prj)
+traffic = st_as_sf(traffic)
+
+traffic = traffic %>% mutate(Begin.Time = as.character(Begin.Time) %>% parse_time("%I:%M %p"))
+traffic$Time = hms(traffic$Begin.Time)
+traffic$Hour = hour(traffic$Time)
+
+traffic$DateTime = paste(traffic$Date, traffic$Hour)
+
+totaltraffic = traffic[which(traffic$Direction == 'Total'),]
+
+totaltraffic$DateTime = paste(totaltraffic$Date, totaltraffic$Hour)
+
+hourlytraffic = totaltraffic %>% group_by(Site.Name, DateTime) %>% summarise(Vehicles = sum(Direction.Value))
+
+remove(totaltraffic, traffic)
+# hourlytraffic = as(hourlytraffic, "Spatial")
+# class(hourlytraffic)
+# library(rgdal)
+# library(dplyr)
+# writeOGR(hourlytraffic, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/Hourly Traffic", "HourlyTraffic", driver="ESRI Shapefile")
+```
+
+```{r}
+library(tidyverse)
+counts = as.data.frame(table(accidents$Year, accidents$Problem))
+colnames(counts) = c("Year","Problem","Count")
+
+test <- aggregate(. ~  Year, counts, sum)
+test = test[,c("Year", "Count")]
+colnames(test)[2] = "Sum"
+```
+
+
+```{r}
+problems = unique(counts$Problem)
+library(RColorBrewer)
+library(ggplot2)
+colors = brewer.pal(4, "Dark2")
+png(paste("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/InjuryDivisionsAccident.png",sep=""), width=8,height=4,units='in', res=600,bg = 'transparent')
+ggplot(counts, aes(x= counts$Problem, y = counts$Count, fill=as.factor(counts$Year)))  + 
+    geom_bar(position="dodge", stat="identity") +
+  xlab("Injury Severity") + ylab("Count Accidents") + labs(fill = "Year") + ggtitle("Accidents per Year by Injury Severity")
+dev.off()
+```
+
+```{r}
+lesscounts= counts[which(!counts$Problem %in% c('No Injuries', 'Mass Casualty', 'Injuries','Unknown Injuries', "Delayed")),]
+lessproblems = unique(lesscounts$Problem)
+png(paste("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/EntrapmentAccident.png",sep=""), width=8,height=4,units='in', res=600,bg = 'transparent')
+ggplot(lesscounts, aes(x= lesscounts$Problem, y = lesscounts$Count, fill=as.factor(lesscounts$Year)))  + 
+    geom_bar(position="dodge", stat="identity") +
+  xlab("Injury Severity") + ylab("Count Accidents") + labs(fill = "Year") + ggtitle("Entrapment Accidents by Year")
+dev.off()
+```
+
+```{r}
+total <- merge(counts,test,by="Year")
+
+total$Percent = total$Count/total$Sum
+
+
+library(RColorBrewer)
+library(ggplot2)
+colors = brewer.pal(4, "Dark2")
+png(paste("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/InjuryPercentsAccident.png",sep=""), width=8,height=4,units='in', res=600,bg = 'transparent')
+ggplot(total, aes(x= total$Problem, y = total$Percent, fill=as.factor(total$Year)))  + 
+    geom_bar(position="dodge", stat="identity") +
+  xlab("Injury Severity") + ylab("Percent of Total Accidents") + labs(fill = "Year") + ggtitle("Percent of Accidents by Injury Severity")
+dev.off()
+```
+
+```{r}
+colnames(accidents)
+accidents$DateTime = paste(accidents$Date, accidents$Hour)
+```
+
+```{r}
+accidents$Date <- as.Date(accidents$Date, "%m/%d/%y")
+accafter = accidents[which(accidents$Date >= '2020-03-20'),]
+accbefore = accidents[which(accidents$Date < '2020-03-20' & accidents$Date > '2020-02-03'),]
+```
+
+
+
+```{r}
+intersections = traffic[,c('Site.Name', 'geometry')]
+# inters = distinct(intersections) 
+# colnames(inters) = 'Site.Name'
+hourly = merge(hourlytraffic, totaltraffic[,c('Site.Name','geometry')], by = 'Site.Name')
+intersections = st_buffer(hourlytraffic, 5)
+```
+
+```{r}
+before = as.data.frame(table(accbefore$Hour))
+after = as.data.frame(table(acc2020$Hour))
+colnames(before) = c('Hour','Before') 
+colnames(after) = c('Hour','After')
+before$Total = sum(before$Before)
+after$Total = sum(after$After)
+
+before$Before_Perc = before$Before/before$Total
+after$After_Perc = after$After/after$Total
+
+merged = merge(before[,c('Hour','Before_Perc')],after[,c('Hour','After_Perc')], by = 'Hour')
+
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/AccidentperHourShift.png", width=9,height=4.5,units='in', res=600,bg = 'transparent')
+par(mar=c(4,4,1,1))
+plot(before$Before_Perc, type="l", col='red', ylim=c(0,.10), xaxt="n", lwd=3, ylab="Percent of Total Accidents", xlab="Hour", main = "COVID 19 Impact on Hour Distribution")
+lines(after$After_Perc, col='blue', lwd=3)
+xtick<-seq(1, 24, by=1)
+axis(side=1, at=xtick, labels = seq(0,23))
+legend(0,.1, legend=c("Before", "After"),
+       col=c("red", "blue"), lty=1, lwd = 3)
+dev.off()
+```
+
+```{r}
+acc2020$Weekday = as.POSIXlt(acc2020$Date)$wday
+accbefore$Weekday = as.POSIXlt(accbefore$Date)$wday
+accbefore$WE = ifelse(accbefore$Weekday %in% c(0,6), 1,0)
+acc2020$WE = ifelse(acc2020$Weekday %in% c(0,6), 1,0)
+
+weekdays2020 = as.data.frame(table(acc2020$WE, acc2020$Hour))
+weekdaysbefore = as.data.frame(table(accbefore$WE, accbefore$Hour))
+colnames(weekdays2020) = c("Day","Hour","After")
+colnames(weekdaysbefore) = c("Day","Hour","Before")
+weekdaysbefore$Total = sum(weekdaysbefore$Before)
+weekdays2020$Total = sum(weekdays2020$After)
+
+weekdaysbefore$Before_Perc = weekdaysbefore$Before/weekdaysbefore$Total
+weekdays2020$After_Perc = weekdays2020$After/weekdays2020$Total
+mergedweekdays = merge(weekdaysbefore[,c('Day','Hour','Before_Perc')],weekdays2020[,c('Day','Hour','After_Perc')], by = c('Day', 'Hour'))
+
+weekdays = mergedweekdays[which(mergedweekdays$Day == 0),]
+weekend = mergedweekdays[which(mergedweekdays$Day == 1),]
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/AccidentWeekdayShift.png", width=9,height=4.5,units='in', res=600,bg = 'transparent')
+par(mar=c(4,4,1,1))
+plot(weekend$Before_Perc, type="l", col='green', ylim=c(0,.08), xaxt="n", yaxt="n", lwd=3, ylab="Percent of Total Accidents", xlab="Hour", main = "COVID 19 Impact on Week Distribution")
+lines(weekend$After_Perc, col='red', lwd=3)
+lines(weekdays$Before_Perc, col='blue', lwd=3)
+lines(weekdays$After_Perc, col='orange', lwd=3)
+xtick<-seq(1, 24, by=1)
+axis(side=1, at=xtick, labels = seq(0,23), las=2)
+axis(side=2, at=seq(0,.08,by=.02), labels = seq(0,8,by=2), las=2)
+legend(17,.08, legend=c("Before Workweek", "Before Workend", "After Workweek", "After Weekend"),
+       col=c("blue", "green", "orange","red"), lty=1, lwd = 3)
+dev.off()
+
+```
+
+```{r}
+acc2020 = accidents[which(accidents$Date > '2020-02-03'),]
+acc2019 = accidents[which(accidents$Date < '2019-05-07' & accidents$Date > '2019-02-03'),]
+acc2018 = accidents[which(accidents$Date < '2018-05-07' & accidents$Date > '2018-02-03'),]
+acc2017 = accidents[which(accidents$Date < '2017-05-07' & accidents$Date > '2017-02-03'),]
+# rm(list=setdiff(ls(), "accCovid"))
+```
+
+
+```{r}
+locs = hourlytraffic[,c('Site.Name', 'geometry')]
+locs = locs[!duplicated(locs$Site.Name), ]
+locs = st_as_sf(locs)
+# geom = unique(hourlytraffic$geometry)
+bufferlocs = st_buffer(locs, .0005)
+```
+
+```{r}
+library(ggmap)
+library(ggplot2)
+bufferlocs[1,]
+
+box = st_bbox(bufferlocs[1,])
+box
+
+bb<- make_bbox(lat=c(box['ymin'],box['ymax']),lon=c(box['xmin'],box['xmax']), f=0.05)
+bb
+zoomed = calc_zoom(bb)
+zoomed
+
+# cda<-get_stamenmap(bb,zoom=zoomed,maptype="watercolor", source='stamen', color='bw') 
+
+cda<-get_stamenmap(bb,zoom=18,maptype="watercolor", source='stamen', color='bw')
+
+ggmap(cda) + coord_sf(crs = st_crs(bufferlocs)) + geom_sf(data=bufferlocs[1,], color='red', fill=NA,alpha=.5, inherit.aes = FALSE)  + xlab("Longitude") + ylab("Latitude")
+```
+
+```{r}
+box = st_bbox(acclocs)
+box
+
+bb<- make_bbox(lat=c(box['ymin'],box['ymax']),lon=c(box['xmin'],box['xmax']), f=0.05)
+bb
+zoomed = calc_zoom(bb)
+zoomed
+cda<-get_stamenmap(bb,zoom=zoomed,maptype="watercolor", source='stamen', color='bw')
+
+ggmap(cda) + coord_sf(crs = st_crs(acclocs)) + geom_sf(data=acclocs, color='black', fill=NA,alpha=.5, inherit.aes = FALSE) + geom_sf(data=bufferlocs, color='red', fill=NA,alpha=.5, inherit.aes = FALSE)  + xlab("Longitude") + ylab("Latitude")
+```
+
+```{r}
+acc2019 <- st_intersection(acc2019, bufferlocs[,"Site.Name"])
+acc2018 <- st_intersection(acc2018, bufferlocs[,"Site.Name"])
+acc2017 <- st_intersection(acc2017, bufferlocs[,"Site.Name"])
+acc2020 <- st_intersection(acc2020, bufferlocs[,"Site.Name"])
+```
+
+```{r}
+library(lubridate)
+totals19 = as.data.frame(table(acc2019$Date, acc2019$Site.Name))
+totals18 = as.data.frame(table(acc2018$Date, acc2018$Site.Name))
+totals17 = as.data.frame(table(acc2017$Date, acc2017$Site.Name))
+totals20 = as.data.frame(table(acc2020$Date, acc2020$Site.Name))
+colnames(totals17) = c("Date","Site", "Accidents2017")
+colnames(totals18) = c("Date","Site", "Accidents2018")
+colnames(totals19) = c("Date","Site", "Accidents2019")
+colnames(totals20) = c("Date","Site", "Accidents2020")
+totals19$Day = format(as.Date(totals19$Date),"%m/%d")
+totals17$Day = format(as.Date(totals17$Date),"%m/%d")
+totals18$Day = format(as.Date(totals18$Date),"%m/%d")
+totals20$Day = format(as.Date(totals20$Date),"%m/%d")
+totals17$Month = format(as.Date(totals17$Date),"%m")
+totals18$Month = format(as.Date(totals18$Date),"%m")
+totals19$Month = format(as.Date(totals19$Date),"%m")
+totals20$Month = format(as.Date(totals20$Date),"%m")
+
+months19 = as.data.frame(table(acc2019$Month, acc2019$Site))
+months18 = as.data.frame(table(acc2018$Month, acc2018$Site))
+months17 = as.data.frame(table(acc2017$Month, acc2017$Site))
+months20 = as.data.frame(table(acc2020$Month, acc2020$Site))
+colnames(months17) = c("Month","Site", "Accidents2017")
+colnames(months18) = c("Month","Site", "Accidents2018")
+colnames(months19) = c("Month","Site", "Accidents2019")
+colnames(months20) = c("Month","Site", "Accidents2020")
+
+library(tidyverse)
+mergedYears = merge(totals17[,c('Day','Site','Accidents2017')], totals18[,c('Day','Site','Accidents2018')], by = c("Month", 'Site'))
+mergedYears = merge(mergedYears, totals19[,c('Day','Site','Accidents2019')], by = c("Day", 'Site'))
+mergedYears = merge(mergedYears, totals20[,c('Day','Site','Accidents2020')], by = c("Day", 'Site'))
+
+mergedMonths = merge(months17[,c('Month','Site','Accidents2017')], months18[,c('Month','Site','Accidents2018')], by = c("Month", 'Site'))
+mergedMonths = merge(mergedMonths, months19[,c('Month','Site','Accidents2019')], by = c("Month", 'Site'))
+mergedMonths = merge(mergedMonths, months20[,c('Month','Site','Accidents2020')], by = c("Month", 'Site'))
+colnames(mergedMonths)[2] = 'Site.Name'
+```
+
+```{r}
+mergedMonthsgeom = merge(mergedMonths, locs, by = 'Site.Name')
+```
+
+```{r}
+accidents$Date = as.Date(accidents$Date, "%m/%d/%y")
+acctraffic = accidents[which(accidents$Date > "2020-02-02"),]
+acctraffic <- st_intersection(acctraffic, bufferlocs[,"Site.Name"])
+acctraffic$DateTime = paste(acctraffic$Date, acctraffic$Hour, sep=" ")
+```
+
+```{r}
+acctable = as.data.frame(table(acctraffic$Site.Name, acctraffic$DateTime))
+colnames(acctable) = c("Site.Name","DateTime","Accidents")
+```
+
+
+```{r}
+library(tidyr)
+hourlytraffic$Date = as.Date(hourlytraffic$DateTime, format = "%m/%d/%y")
+hourlytraffic = hourlytraffic %>% separate(DateTime, c(NA,"Time"), " ")
+hourlytraffic$DateTime = paste(hourlytraffic$Date, hourlytraffic$Time, sep = " ")
+
+trafficaccidents = merge(hourlytraffic, acctable, by = c("Site.Name", "DateTime"))
+
+trafficaccidents$Percent = trafficaccidents$Accidents/trafficaccidents$Vehicles
+```
+
+```{r}
+trafficaccidents <- trafficaccidents[order(-trafficaccidents$Percent),]
+mean(trafficaccidents$Percent, na.rm = TRUE)
+
+top20 = top_n(trafficaccidents, 20, Percent)
+top20 = top20[,c('Site.Name','DateTime','Vehicles','Accidents','Percent')]
+```
+
+```{r}
+beforetraffic = hourlytraffic[which(hourlytraffic$Date < '2020-03-20'),]
+aftertraffic = hourlytraffic[which(hourlytraffic$Date >= '2020-03-20' & hourlytraffic$Date <= '2020-05-14'),]
+```
+
+```{r}
+"Before:"
+cat("Mean:",mean(beforetraffic$Vehicles),"\n")
+cat("Max:",max(beforetraffic$Vehicles), "\n")
+cat("Min:", min(beforetraffic$Vehicles), "\n")
+
+"After:"
+cat("Mean:",mean(aftertraffic$Vehicles),"\n")
+cat("Max:",max(aftertraffic$Vehicles), "\n")
+cat("Min:", min(aftertraffic$Vehicles), "\n")
+```
+
+```{r}
+beforetable = beforetraffic %>% group_by(Time) %>% summarise(Vehicles = sum(Vehicles))
+aftertable = aftertraffic %>% group_by(Time) %>% summarise(Vehicles = sum(Vehicles))
+
+beforetable$Hour = sprintf("%02d",as.numeric(beforetable$Time))
+aftertable$Hour = sprintf("%02d",as.numeric(aftertable$Time))
+
+beforetable$Total = sum(beforetable$Vehicles) 
+aftertable$Total = sum(aftertable$Vehicles) 
+
+beforetable$Percent = beforetable$Vehicles / beforetable$Total
+aftertable$Percent = aftertable$Vehicles / aftertable$Total
+
+beforetable <- beforetable[order(beforetable$Hour),]
+aftertable <- aftertable[order(aftertable$Hour),]
+
+
+```
+
+```{r}
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/TotalTraffic-BeforeAndAfter_Short.png", width=6,height=4,units='in', res=600,bg = 'transparent')
+par(mar=c(4,4,1,1))
+plot(beforetable$Vehicles, type="l",col= 'blue', ylim = c(100000,5000000),yaxt="n", xaxt="n", ylab= "Traffic in Millions", main = "Total Traffic by Hour", lwd=3, xlab = "Hour")
+lines(aftertable$Vehicles,col= 'red', lwd=3)
+axis(2, seq(0,5000000, by = 1000000),  seq(0,5, by = 1), las = 2 )
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(0,5000000, legend=c("Before", "After"),
+       col=c("blue", "red"), lty=1, lwd = 3)
+dev.off()
+```
+
+```{r}
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/PercentTraffic-BeforeAndAfter_Short.png", width=6,height=4,units='in', res=600,bg = 'transparent')
+par(mar=c(4,4,1,1))
+plot(beforetable$Percent, type="l",col= 'blue', ylim = c(0,.09),yaxt="n", xaxt="n", ylab= "Percent of Traffic", main = "Percent Traffic by Hour", lwd=3, xlab = "Hour")
+lines(aftertable$Percent,col= 'red', lwd=3)
+axis(2, seq(0,.09, by = .03),  seq(0,9, by = 3), las = 2 )
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(0,.09, legend=c("Before", "After"),
+       col=c("blue", "red"), lty=1, lwd = 3)
+dev.off()
+```
+
+```{r}
+sum(after$After)
+sum(before$Before)
+```
+
+
+```{r}
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/TrafficPercentVersusAccidents-BeforeAndAfter.png", width=9,height=4.5,units='in', res=600,bg = 'transparent')
+par(mar=c(4,4,1,1))
+plot(beforetable$Percent, type="l",col= 'blue', ylim = c(0,.1),yaxt="n", xaxt="n",ylab = "", main = "Percent Total Traffic to Accidents by Hour", lwd=3, xlab = "Hour")
+lines(aftertable$Percent,col= 'orange', lwd=3)
+lines(merged$Before_Perc,col= 'green', lwd=3)
+lines(merged$After_Perc,col= 'red', lwd=3)
+axis(2, seq(0,.1, by = .02),  seq(0,10, by = 2), las = 2 )
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(19,.1, legend=c("Traffic before","Accidents before", "Traffic after", "Accidents after"),
+       col=c("blue","green", "orange","red"), lty=1, lwd = 3)
+dev.off()
+```
+
+
+```{r}
+months = as.data.frame(table(accidents$Year, accidents$Month, accidents$Problem))
+colnames(months) = c("Year","Month","Problem","Count")
+
+monthssorted = months[order(c(months$Year, months$Month)),]
+monthssorted = monthssorted[which(!is.na(monthssorted$Month)),]
+
+monthssorted = monthssorted[which(! monthssorted$Problem %in% c("Unknown Injuries")),]
+
+feb = monthssorted[which(monthssorted$Month == 2),]
+mar = monthssorted[which(monthssorted$Month == 3),]
+apr = monthssorted[which(monthssorted$Month == 4),]
+
+
+ggplot(feb, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("February Injuries")
+
+ggplot(mar, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("March Injuries")
+
+ggplot(apr, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("April Injuries")
+
+feb = feb[which(!feb$Problem %in% c('No Injuries','Mass Casualty')),]
+ggplot(feb, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("February Injury Severity Increase")
+
+mar = mar[which(!mar$Problem %in% c('No Injuries','Mass Casualty')),]
+ggplot(mar, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("March Injury Severity Increase")
+
+apr = apr[which(!apr$Problem %in% c('No Injuries','Mass Casualty')),]
+ggplot(apr, aes(fill=Year, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") + ggtitle("April Injury Severity Increase")
+```
+
+```{r}
+library(ggplot2)
+library(viridis)
+# library(hrbrthemes)
+# dropped = monthssorted[which(!monthssorted$Problem %in% c('No Injuries', 'Mass Casualty', 'Unknown Injuries')),]
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/FourYearsSeverity.png", width=9,height=6,units='in', res=600,bg = 'transparent')
+ggplot(dropped, aes(fill=Month, y=Count, x=Problem)) + 
+    geom_bar(position="dodge", stat="identity") +
+  ylim(0, 300) + 
+    ggtitle("Injury Severity across Feb-Apr 2017-2020") +
+    facet_wrap(~Year, scales = "free_x") +
+    theme(legend.position="topleft") 
+dev.off()
+
+injury = monthssorted[which(monthssorted$Problem == 'Injuries'), ]
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/FourYearsInjury.png", width=9,height=6,units='in', res=600,bg = 'transparent')
+ggplot(injury, aes(x=Month, y=Count, fill = Year)) + 
+    geom_bar(position="dodge", stat="identity") +
+  ylim(0, 300) + 
+    ggtitle("Injuries across Feb-Apr 2017-2020") +
+    theme(legend.position="topleft") 
+dev.off()
+```
+
+```{r}
+hoursbymonth = as.data.frame(table(accidents$Year, accidents$Month, accidents$Hour))
+colnames(hoursbymonth) = c("Year","Month","Hour", "Count")
+
+typeof(hoursbymonth$Count)
+typeof(hoursbymonth$Year)
+typeof(hoursbymonth$Month)
+typeof(hoursbymonth$Hour)
+# The arguments to spread():
+# - data: Data object
+# - key: Name of column containing the new column names
+# - value: Name of column containing values
+data_wide <- spread(hoursbymonth, Hour, Count)
+data_wide = t(data_wide)
+# plot()
+
+colnames(data_wide) = c( "Feb_17","Mar_17","Apr_17","Feb_18","Mar_18","Apr_18","Feb_19","Mar_19","Apr_19","Feb_20","Mar_20","Apr_20" )
+data_wide = data_wide[3:26,]
+test = as.data.frame(data_wide)
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Apr2020Accidents.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+plot(x= seq(1,24),test$Feb_17, col = 'purple', lwd=2, type = "l", main = "April Accidents", xaxt="n", yaxt="n", ylim = c(0,30), ylab="Accidents", xlab = "Hour")
+lines(test$Apr_18, col = 'blue', lwd=2)
+lines(test$Apr_19, col = 'green', lwd=2)
+lines(test$Apr_20, col = 'red', lwd=2)
+axis(2, seq(0,30, by = 5),  seq(0,30, by = 5), las = 2)
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(1,30, legend=c("2017","2018", "2019","2020"),
+       col=c("purple","blue","green","red"), lty=1, lwd = 3)
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Feb2020Accidents.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+plot(x= seq(1,24),test$Feb_17, col = 'purple', lwd=2, type = "l", main = "February Accidents", xaxt="n", yaxt="n", ylim = c(0,30), ylab="Accidents", xlab = "Hour")
+lines(test$Feb_18, col = 'blue', lwd=2)
+lines(test$Feb_19, col = 'green', lwd=2)
+lines(test$Feb_20, col = 'red', lwd=2)
+axis(2, seq(0,30, by = 5),  seq(0,30, by = 5), las = 2)
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(1,30, legend=c("2017","2018", "2019","2020"),
+       col=c("purple","blue","green","red"), lty=1, lwd = 3)
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Mar2020Accidents.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+plot(x= seq(1,24),test$Mar_17, col = 'purple', lwd=2, type = "l", main = "March Accidents", xaxt="n", yaxt="n", ylim = c(0,30), ylab="Accidents", xlab = "Hour")
+lines(test$Mar_18, col = 'blue', lwd=2)
+lines(test$Mar_19, col = 'green', lwd=2)
+lines(test$Mar_20, col = 'red', lwd=2)
+axis(2, seq(0,30, by = 5),  seq(0,30, by = 5), las = 2)
+axis(1, seq(1,24),  seq(0,23), las=2)
+legend(1,30, legend=c("2017","2018", "2019","2020"),
+       col=c("purple","blue","green","red"), lty=1, lwd = 3)
+
+```
+
+```{r}
+monthlytraffic = totaltraffic %>% group_by(Site.Name, Date) %>% summarise(Vehicles = sum(Direction.Value))
+monthlytraffic$Date = as.Date(monthlytraffic$Date, "%m/%d/%y")
+monthlytraffic$Month = month(monthlytraffic$Date)
+
+monthlytraffic = monthlytraffic %>% group_by(Site.Name, Month) %>% summarise(Vehicles = sum(Vehicles))
+
+
+min(monthlytraffic$Vehicles)
+max(monthlytraffic$Vehicles)
+```
+
+```{r}
+library(sf)
+library(ggplot2)
+library(ggmap)
+box = st_bbox(monthlytraffic)
+box
+
+bb<- make_bbox(lat=c(box['ymin'],box['ymax']),lon=c(box['xmin'],box['xmax']), f=0.05)
+bb
+zoomed = calc_zoom(bb)
+zoomed
+cda<-get_stamenmap(bb,zoom=zoomed,maptype="watercolor", source='stamen', color='bw')
+```
+
+```{r}
+feb = monthlytraffic[which(monthlytraffic$Month == 2),]
+mar = monthlytraffic[which(monthlytraffic$Month == 3),]
+apr = monthlytraffic[which(monthlytraffic$Month == 4),]
+# max(feb$Vehicles)
+# min(apr$Vehicles)
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Feb2020Traffic.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(feb)) + geom_sf(data=feb, aes(color = feb$Vehicles),size=1, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=750000, high = "red", "Accidents", limits=c(0,1500000)) + ggtitle("February Traffic")
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Mar2020Traffic.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(mar)) + geom_sf(data=mar, aes(color = mar$Vehicles),size=1, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=750000, high = "red", "Accidents", limits=c(0,1500000)) + ggtitle("March Traffic")
+dev.off()
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/Apr2020Traffic.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(apr)) + geom_sf(data=apr, aes(color = apr$Vehicles),size=1, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=750000, high = "red", "Accidents", limits=c(0,1500000)) + ggtitle("April Traffic")
+dev.off()
+```
+
+```{r}
+# unique(acctraffic$Month)
+siteacc = as.data.frame(table(acctraffic$Site.Name, acctraffic$Month))
+colnames(siteacc) = c("Site.Name","Month","Accidents")
+```
+
+```{r}
+trafficAndacc = merge(monthlytraffic, siteacc, by = c("Site.Name","Month"), all.x= TRUE)
+trafficAndacc[is.na(trafficAndacc)] <- 0
+
+feb = trafficAndacc[which(trafficAndacc$Month ==2),]
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/FebSiteAccs.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(feb)) + geom_sf(data=feb, aes(color = feb$Accidents),size=3, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=3, high = "red", "Accidents", limits=c(0,5)) + ggtitle("February Accidents")
+dev.off()
+
+apr = trafficAndacc[which(trafficAndacc$Month ==4),]
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/AprSiteAccs.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(apr)) + geom_sf(data=apr, aes(color = apr$Accidents),size=3, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=3, high = "red", "Accidents", limits=c(0,5)) + ggtitle("April Accidents")
+dev.off()
+
+mar = trafficAndacc[which(trafficAndacc$Month ==3),]
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/MarSiteAccs.png", width=9,height=4.5,units='in', res=600,bg = 'white')
+ggmap(cda) + coord_sf(crs = st_crs(mar)) + geom_sf(data=mar, aes(color = mar$Accidents),size=3, inherit.aes = FALSE) + xlab("Longitude") + ylab("Latitude")  + scale_color_gradient2(low = "blue",mid="green", midpoint=3, high = "red", "Accidents", limits=c(0,5)) + ggtitle("March Accidents")
+dev.off()
+
+
+```
+
+```{r}
+# totaltraffic$Date = as.Date(totaltraffic$Date, "%m/%d/%y")
+# totaltraffic$Month = month(totaltraffic$Date)
+monthhourlytraffic = totaltraffic %>% group_by(Site.Name, Month, Hour) %>% summarise(Vehicles = sum(Direction.Value))
+```
+
+```{r}
+before = as.data.frame(table(accbefore$Problem))
+after = as.data.frame(table(accafter$Problem))
+colnames(before) = c('Injury Level','Before') 
+colnames(after) = c('Injury Level','After')
+before$TotalBefore = sum(before$Before)
+after$TotalAfter = sum(after$After)
+
+before$PreSIP = before$Before/before$TotalBefore
+after$PostSIP = after$After/after$TotalAfter
+
+merged = merge(before, after, by ='Injury Level')
+merged = merged[, c('Injury Level','PreSIP','PostSIP')]
+
+merged <- gather(merged, State, 'Percent', PreSIP:PostSIP, factor_key=TRUE)
+
+library(RColorBrewer)
+library(ggplot2)
+colors = brewer.pal(4, "Dark2")
+merged$Percent = merged$Percent * 100
+
+merged = merged[which(!merged$`Injury Level` %in% c('No Injuries', 'Unknown Injuries') ),]
+
+
+png(paste("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/InjuryDivisionsPreandPostSIP.png",sep=""), width=8,height=4,units='in', res=600,bg = 'transparent')
+ggplot(merged, aes(x= merged$'Injury Level', y = merged$Percent, fill=as.factor(merged$State)))  + 
+    geom_bar(position="dodge", stat="identity") +
+  xlab("Injury Severity") + ylab("Percentage of Total Accidents") + labs(fill = "State") + ggtitle("Percentage of Accident Divisions Before and After SIP") 
+dev.off()
+
+```
+
+```{r}
+totalbefore = sum(before$Before) / length(unique(accbefore$Date))
+totalafter = sum(after$After) / length(unique(accafter$Date))
+totals = c(totalbefore, totalafter)
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/TotalAccidentsPreandPostSIP.png", width=5,height=5,units='in', res=600,bg = 'transparent')
+plot = barplot(totals, col = c('#f8766d','#07b5bc'), xaxt="n", yaxt="n", ylim = c(0,70), border= "NA")
+axis(1, at= plot, labels = c("PreSIP", "PostSIP"), tck=0)
+axis(2, at= seq(0,70,by=10), labels = seq(0,70,by=10), las=2)
+dev.off()
+
+totalst = as.data.frame(totals)
+totalst$State = c("PreSIP","PostSIP")
+colnames(totalst) = c("Average","State")
+library(tidyverse)
+totalst = totalst[seq(dim(totalst)[1],1),]
+totalst$State <- factor(totalst$State,levels = c("PreSIP","PostSIP"))
+
+png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Accidents/TotalAccidentsPreandPostSIPBack.png", width=5,height=5,units='in', res=600)
+
+ggplot(totalst, aes(State, Average, fill = as.factor(State)) ) + geom_bar(position="dodge", stat="identity") + ggtitle("Average Daily Accident Count, \n Pre and Post SIP") + ylim(0,70) + labs(fill = "State")
+dev.off()
+```
+
+

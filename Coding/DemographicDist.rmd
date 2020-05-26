@@ -1,0 +1,303 @@
+---
+title: "Animated Plots"
+output: pdf_document
+---
+
+```{r}
+library(readxl)
+library(httr)
+library(tidyverse)
+link = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-Case-Info.XLSX"
+GET(link, write_disk(tf <- tempfile(fileext = ".xlsx")))
+daily <- read_excel(tf)
+
+
+link = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.XLSX"
+GET(link, write_disk(tf <- tempfile(fileext = ".xlsx")))
+specbreakdown <- read_excel(tf)
+
+divisions<-split(specbreakdown, specbreakdown$Category)
+
+Ethnicity = divisions$ETHNICITY
+Race = divisions$RACE
+Sex = divisions$SEX
+
+link =  'https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Age.XLSX'
+
+GET(link, write_disk(tf <- tempfile(fileext = ".xlsx")))
+age <- read_excel(tf)
+
+remove(link, tf, divisions, specbreakdown)
+```
+
+```{r}
+age = age[which(!age$AGE_RANGE == 'Pending'),]
+
+age = merge(age, agepop, by = 'AGE_RANGE')
+
+age = age[order(c(age$DATE, age$AGE_RANGE)),]
+age = age[complete.cases(age), ]
+
+age$Population_Short = age$Population/1000
+
+age$Perc = age$AR_CASECOUNT/age$Population_Short
+age$Perc = round(age$Perc, 2)
+
+```
+
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+
+age_formatted <- age %>%
+  group_by(DATE) %>%
+  # The * 1 makes it possible to have non-integer ranks while sliding
+  mutate(rank = rank(-Perc)) %>%
+  group_by(AGE_RANGE) %>% 
+  ungroup()
+
+age_formatted = age_formatted[complete.cases(age_formatted), ]
+
+length(unique(age_formatted$DATE))
+
+staticplot = ggplot(age_formatted, aes(rank, group = AGE_RANGE, 
+                fill = as.factor(AGE_RANGE), color = as.factor(AGE_RANGE))) + xlab("COVID Cases per Thousand") +
+  geom_tile(aes(y = Perc/2,
+                height = Perc,
+                width = 0.9), alpha = 0.8, color = NA) +
+  geom_text(aes(y = 0, label = paste(AGE_RANGE, " ")), vjust = 0.2, hjust = 1, size=10) +
+  geom_text(aes(y=Perc,label = Perc, hjust=0), size=15) +
+  coord_flip(clip = "off", expand = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_reverse() +
+  guides(color = FALSE, fill = FALSE) +
+  theme(axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+        legend.position="none",
+        panel.background=element_blank(),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major.x = element_line( size=.1, color="grey" ),
+        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        plot.title=element_text(size=25, hjust=0.5, face="bold", colour="grey"),
+        plot.subtitle=element_text(size=18, hjust=0.5, face="italic", color="grey"),
+        plot.caption =element_text(size=8, hjust=0.5, face="italic", color="grey"),
+        plot.background=element_blank(),
+       plot.margin = margin(t = 3, r = 6, b = 4, l = 8, unit = "cm"))
+
+staticplot
+
+anim = staticplot + transition_states(DATE, transition_length = 2, state_length = 10, wrap = FALSE) +
+  view_follow(fixed_x = TRUE)  +
+  labs(title = 'COVID Cases per Thousand : {closest_state}',  
+       caption  = "COVID Cases by Age group per Thousand | Data Source: TN.gov")
+
+# For GIF
+animate(anim, 400, fps = 20,  width = 1500, height = 1000, end_pause=20, 
+        renderer = gifski_renderer("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Age_capita.gif"))
+```
+
+```{r}
+library(tabulizer)
+library(dplyr)
+location = "https://www.tn.gov/content/dam/tn/health/documents/population/TN-Population-by-AgeGrp-Sex-Race-Ethnicity-2018.pdf"
+out <- extract_tables(location, pages=1)
+popdata = as.data.frame(out[[1]])
+remove(location, out)
+rownames(popdata)
+popdata = popdata[1:2,]
+columns = sub("\r", " ", unlist(popdata[1,]))
+colnames(popdata) = columns
+popdata = popdata[2,]
+colnames(popdata) = sub("Total", "", colnames(popdata) )
+colnames(popdata) = trimws(colnames(popdata))
+```
+
+```{r}
+library(sf)
+county = st_read("/Users/peteway/Downloads/Work/SHP_GU_CountyPopProjections20182070_TN/GU_CountyPopProjections20182070_TN.shp")
+
+county = county[which(county$YEAR == 2020),]
+county = county[which(names(county) %in% c("TOT_POP","AGE_5_UNDR","AGE_5_TO_9", "AGE_10_TO_", "AGE_15_TO_", "AGE_20_TO_", "AGE_25_TO_", "AGE_30_TO_", "AGE_35_TO_", "AGE_40_TO_", "AGE_45_TO_", "AGE_50_TO_", "AGE_55_TO_", "AGE_60_TO_", "AGE_65_TO_", "AGE_70_TO_", "AGE_75_TO_", "AGE_80_TO_", "AGE_85_UP", "MALE", "FEMALE", "WHITE_NH", "BLACK_NH",    "HISPANIC",  "OTHER_NONH"))]
+county = county[!names(county) == 'geometry']
+
+counts = as.data.frame(colSums(county))
+counts$Cat_Detail = rownames(counts)
+colnames(counts) = c('Population','Cat_Detail')
+write.csv(counts, "/Users/peteway/Downloads/Work/counts.csv")
+agepop = read.csv("/Users/peteway/Downloads/Work/counts.csv")
+# counts = as.data.frame(t(counts))
+```
+
+
+```{r}
+pop = read.csv("/Users/peteway/Downloads/popdataest.csv")
+
+```
+
+
+```{r}
+Race = Race[which(!Race$Cat_Detail == 'Pending'),]
+Race = separate(Race, col = 'Cat_Detail', into = c('Cat_Detail'), sep = " ", convert = TRUE)
+Race$Cat_Detail = sub("Other/Multiracial", "Other", Race$Cat_Detail)
+
+# test = merge(Race, pop, by = 'Cat_Detail')
+# 
+# test = test[order(c(test$Date, test$Cat_Detail)),]
+# 
+# # test = test %>%
+#   # group_by(Cat_Detail) %>%
+#   # mutate(Cumu_Case = cumsum(Cat_CaseCount))
+# 
+# test$Population_Short = test$Population/1000
+# 
+# test$Perc = test$Cat_CaseCount/test$Population_Short
+# test$Perc = round(test$Perc, 2)
+# test = test[complete.cases(test), ]
+```
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+
+race_format <- test %>%
+  group_by(Date) %>%
+  # The * 1 makes it possible to have non-integer ranks while sliding
+  mutate(rank = rank(-Perc)) %>%
+  group_by(Cat_Detail) %>% 
+  ungroup()
+
+
+staticplot = ggplot(race_format, aes(rank, group = Cat_Detail, 
+                fill = as.factor(Cat_Detail), color = as.factor(Cat_Detail))) + xlab("COVID Cases per Thousand") +
+  geom_tile(aes(y = Perc/2,
+                height = Perc,
+                width = 0.9), alpha = 0.8, color = NA) +
+  geom_text(aes(y = 0, label = paste(Cat_Detail, " ")), vjust = 0.2, hjust = 1, size=5) +
+  geom_text(aes(y=Perc,label = Perc, hjust=0), size=15) +
+  coord_flip(clip = "off", expand = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_reverse() +
+  guides(color = FALSE, fill = FALSE) +
+  theme(axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+        legend.position="none",
+        panel.background=element_blank(),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major.x = element_line( size=.1, color="grey" ),
+        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        plot.title=element_text(size=25, hjust=0.5, face="bold", colour="grey"),
+        plot.subtitle=element_text(size=18, hjust=0.5, face="italic", color="grey"),
+        plot.caption =element_text(size=8, hjust=0.5, face="italic", color="grey"),
+        plot.background=element_blank(),
+       plot.margin = margin(t = 3, r = 6, b = 4, l = 8, unit = "cm"))
+
+staticplot
+
+anim = staticplot + transition_states(Date, transition_length = 30, state_length = 150) +
+  view_follow(fixed_x = TRUE)  +
+  labs(title = 'COVID Cases per Thousand: {closest_state}',  
+       caption  = "COVID Cases by Racial Group per Thousand | Data Source: TN.gov")
+
+# For GIF
+animate(anim, 400, fps = 20,  width = 1500, height = 1000, end_pause=50, 
+        renderer = gifski_renderer("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Race_Perc.gif"))
+
+```
+
+```{r}
+Ethnicity = Ethnicity[which(!Ethnicity$Cat_Detail == 'Pending'),]
+```
+
+```{r}
+combine = rbind(Ethnicity, Race)
+combine = merge(combine, pop, by = 'Cat_Detail')
+
+combine = combine[order(c(combine$Date, combine$Cat_Detail)),]
+
+# combine = combine %>%
+  # group_by(Cat_Detail) %>%
+  # mutate(Cumu_Case = cumsum(Cat_CaseCount))
+
+combine$Population_Short = combine$Population/1000
+
+combine$Perc = combine$Cat_CaseCount/combine$Population_Short
+combine$Perc = round(combine$Perc, 2)
+combine = combine[complete.cases(combine), ]
+```
+
+```{r}
+length(unique(combine$Date))
+```
+
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+
+com_format <- combine %>%
+  group_by(Date) %>%
+  # The * 1 makes it possible to have non-integer ranks while sliding
+  mutate(rank = rank(-Perc)) %>%
+  group_by(Cat_Detail) %>% 
+  ungroup()
+
+
+staticplot = ggplot(com_format, aes(rank, group = Cat_Detail, 
+                fill = as.factor(Cat_Detail), color = as.factor(Cat_Detail))) + xlab("COVID Cases per Thousand") +
+  geom_tile(aes(y = Perc/2,
+                height = Perc,
+                width = 0.9), alpha = 0.8, color = NA) +
+  geom_text(aes(y = 0, label = paste(Cat_Detail, " ")), vjust = 0.2, hjust = 1, size=5) +
+  geom_text(aes(y=Perc,label = Perc, hjust=0), size=15) +
+  coord_flip(clip = "off", expand = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_reverse() +
+  guides(color = FALSE, fill = FALSE) +
+  theme(axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+        legend.position="none",
+        panel.background=element_blank(),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major.x = element_line( size=.1, color="grey" ),
+        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        plot.title=element_text(size=25, hjust=0.5, face="bold", colour="grey"),
+        plot.subtitle=element_text(size=18, hjust=0.5, face="italic", color="grey"),
+        plot.caption =element_text(size=8, hjust=0.5, face="italic", color="grey"),
+        plot.background=element_blank(),
+       plot.margin = margin(t = 3, r = 6, b = 4, l = 8, unit = "cm"))
+
+staticplot
+
+anim = staticplot + transition_states(Date, transition_length = 3, state_length = 12, wrap = FALSE) +
+  view_follow(fixed_x = TRUE)  +
+  labs(title = 'COVID Cases per Thousand: {closest_state}',  
+       caption  = "COVID Cases by Racial Group per Thousand | Data Source: TN.gov")
+
+# For GIF
+animate(anim, 500, fps = 20,  width = 1500, height = 1000, end_pause=20,
+        renderer = gifski_renderer("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/EthRace_Perc.gif"))
+
+```
+

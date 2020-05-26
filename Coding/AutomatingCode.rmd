@@ -9,23 +9,12 @@ library(data.table)
 library(RPostgreSQL)
 
 ##This dataset is the count of COVID-19 cases per county in Tennessee, updated each day at 2PM
-library(rvest)
-url <- "https://www.tn.gov/health/cedep/ncov.html"
-webpage <- read_html(url)
-tbls_ls <- webpage %>%
-  html_nodes("table") %>%
-  html_table(fill = TRUE)
+library(readxl)
+library(httr)
+link = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
+GET(link, write_disk(tf <- tempfile(fileext = ".XLSX")))
+countytable <- read_excel(tf)
 
-for(i in tbls_ls){
-  columns = colnames(i)
-  if(columns == c("County","Positive","Negative","Deaths"))
-  {
-    countytable = i
-    countytable[is.na(countytable)] = 0
-  }
-  
-}
-remove(url, webpage, tbls_ls,i,columns)
 
 #This dataset is the projection of hospital resources necessary for the COVID-19 epidemic in the Tennessee area. 
 projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
@@ -49,7 +38,6 @@ use_virtualenv("/Users/peteway/.local/share/virtualenvs/COVID19-Analysis-LNCuW-D
 py_config()
 ```
 
-
 ```{python}
 import os
 import datetime 
@@ -59,16 +47,13 @@ from arcgis.features import FeatureLayerCollection
 
 ##Login to GIS
 gis = GIS()
+safegraphid = "6ac3ff66afb54f35b66cbad9f41f127c"
 
-##ID for the Unacast map 
-id = "ab72fb3e9bf24d9594f0b942718bffeb"
-
-##Gets the content listed at the given id 
 test = gis.content.get(id)
-unacast_layer = FeatureLayerCollection(test.url)
+layer = FeatureLayerCollection(test.url)
 
 ##Pulls the individual layer out of the collection
-layer = unacast_layer.layers
+layer = layer.layers
 layer = layer[0]
 
 ##Pulls the entire set of data within that layer
@@ -77,14 +62,45 @@ query_result1 = layer.query()
 ##Converts the query results into a dataframe. 
 frame = query_result1.sdf
 ##Date format = 2020-04-06 15:32:29.533999919, so drop the millisec section.
-frame[['last_updated']] = datetime.datetime.strptime((str(max(frame.last_updated)).split(".")[0]), "%Y-%m-%d %H:%M:%S")
+# frame[['last_updated']] = datetime.datetime.strptime((str(max(frame.last_updated)).split(".")[0]), "%Y-%m-%d %H:%M:%S")
 print(frame.last_updated[0])
+print(frame.columns)
+frame = frame[frame['state_name']=='Tennessee']
 
 frame.to_csv("../Data/UnacastSocialDistancing.csv", index=False)
+
+```
+
+
+
+```{r}
+
+library(tidyverse)
+
+specbreakdown <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQi60Tqg5FruuwAsJBXYvKJe0badlLsnS0k7B36hARrIrI8FMZOEVfTgQFLVsudSmUs6WZv6RYsKB6I/pub?gid=1081269126&single=true&output=csv")
+# divisions = specbreakdown %>% group_by(Category, Cat_Detail)
+daily <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQi60Tqg5FruuwAsJBXYvKJe0badlLsnS0k7B36hARrIrI8FMZOEVfTgQFLVsudSmUs6WZv6RYsKB6I/pub?gid=1242898529&single=true&output=csv")
+
+divisions<-split(specbreakdown, specbreakdown$CATEGORY)
+Ethnicity = divisions$Ethnicity
+Race = divisions$Race
+Sex = divisions$Sex
+remove(divisions, specbreakdown)
+
+age <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQi60Tqg5FruuwAsJBXYvKJe0badlLsnS0k7B36hARrIrI8FMZOEVfTgQFLVsudSmUs6WZv6RYsKB6I/pub?gid=263818242&single=true&output=csv")
+
+zipcases = read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQi60Tqg5FruuwAsJBXYvKJe0badlLsnS0k7B36hARrIrI8FMZOEVfTgQFLVsudSmUs6WZv6RYsKB6I/pub?gid=96499078&single=true&output=csv")
+
+write_csv(zipcases, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/ZipData.csv")
+write_csv(Ethnicity, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/EthData.csv")
+write_csv(Race, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/RaceData.csv")
+write_csv(Sex, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/SexData.csv")
+write_csv(age, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/AgeData.csv")
+write_csv(daily, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CaseData/DailyData.csv")
 ```
 
 ```{r}
-py_config()
+traffic = read.csv("https://internal.chattadata.org/api/views/fpgh-69ti/rows.csv?accessType=DOWNLOAD")
+
+length(unique(traffic$geom))
 ```
-
-

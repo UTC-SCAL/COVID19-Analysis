@@ -9,6 +9,9 @@ sklearn = "*"
 matplotlib = "*"
 geopandas = "*"
 arcgis = "*"
+tabula-py = "*"
+camelot-py = {extras = ["cv"],version = "*"}
+ghostscript = "*"
 
 [dev-packages]
 autopep8 = "*"
