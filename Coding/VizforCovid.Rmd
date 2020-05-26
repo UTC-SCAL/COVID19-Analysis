@@ -1,0 +1,41 @@
+---
+title: "VizforCovid"
+output: pdf_document
+---
+
+#Run all chunks in AutomatingCode.rmd before running anything in this file. It will not work if you don't. 
+```{r}
+daily$DATE = as.Date(daily$DATE, "%Y-%m-%d")
+ggplot(data = daily, aes(x = DATE, y = CASES_NEW), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom') + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ylim(0,80) + ggtitle("Daily New Cases in Hamilton County")
+
+ggplot(data = daily, aes(x = DATE, y = CASES_NEW_LAST7DAYS), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom') + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ylim(0,320) + ggtitle("Daily New Cases for Last Seven Days in Hamilton County")
+
+ggplot(data = daily, aes(x = DATE, y = CASES_TOTAL), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom') + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ylim(0,700) + ggtitle("Total Cases in Hamilton County")
+
+
+daily$CASES_GROWTHRATE = gsub( "%", "", as.character(daily$CASES_GROWTHRATE))
+daily$CASES_GROWTHRATE = as.numeric(daily$CASES_GROWTHRATE)
+ggplot(data = daily, aes(x = DATE, y = CASES_GROWTHRATE), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom')  + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ggtitle("Covid Growth Rate in Hamilton County")
+```
+
+```{r}
+# countytable = countytable[which(!countytable$COUNTY == 'Out of State'),]
+ham = countytable[which(countytable$COUNTY == 'Hamilton'),]
+ham = ham[complete.cases(ham$TOTAL_TESTS),]
+
+ham$DATE = as.Date(ham$DATE)
+
+sapply(ham, class)
+str(ham)
+ham$Perc = ham$POS_TESTS/ham$TOTAL_TESTS
+
+ggplot(data = ham, aes(x = DATE, y = Perc), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom')  + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ggtitle("Percent of Tests Positive in Hamilton County") + ylab("% Positive Tests")
+
+ggplot(data = ham, aes(x = DATE, y = 1-Perc), lwd=2) + geom_line(color= 'red') + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'bottom')  + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ggtitle("Percent of Tests Negative in Hamilton County") + ylab("Percent of Tests Reported Negative")
+
+```
+
+```{r}
+ggplot(data = ham) + geom_line(aes(x = DATE, y = POS_TESTS, color = 'red'), lwd=2) + geom_line(aes(x = DATE, y = TOTAL_TESTS, color = 'blue'), lwd=2) + theme(axis.text.x = element_text(angle = 90))  + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ggtitle("Hamilton County Testing") + ylab("Tests") + scale_color_discrete(name = "Testing", labels = c("Total", "Positive"))
+```
+

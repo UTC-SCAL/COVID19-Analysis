@@ -1,9 +1,0 @@
----
-title: "TestingPostgreSQLUploads"
-output: html_document
----
-
-```{r}
-
-```
-

@@ -69,7 +69,7 @@ hamdata = tndata[which(tndata$Admin2 == 'Hamilton'),]
 ```{r}
 library(sf)
 library(sp)
-shape = read_sf("/Users/peteway/Downloads/Work/TN_counties/TN_counties.shp")
+shape = read_sf("Downloads/Work/TN_counties/TN_counties.shp")
 ```
 
 ```{r}
@@ -154,11 +154,11 @@ towrite = as.data.frame(popmerged)
 keepcols = c('COUNTY.NAME','CASES','AREA','POP','POPDEN','CASEDEN','CASEBYPOP','Deaths','Active','Recovered')
 towrite = towrite[,(names(towrite) %in% keepcols)]
 
-write.csv(towrite, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/PopulationDataApril1.csv")
+write.csv(towrite, "../Data/PopulationDataApril1.csv")
 ```
 
 ```{r}
-countytests = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/CountyTests.csv")
+countytests = read.csv("../Data/CountyTests.csv")
 countytests$Positive <- as.numeric(countytests$Positive)
 countytests$Negative <- as.numeric(countytests$Negative)
 countytests = countytests[which(!countytests$County.Name %in% c('Total','Unknown','Non-Tennessee Resident')),]
@@ -171,7 +171,7 @@ names(countytests)[names(countytests) == 'County.Name'] <- 'COUNTY.NAME'
 ```
 
 ```{r}
-ecodata = read.csv("/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/covidData_31.csv")
+ecodata = read.csv("../Data/covidData_31.csv")
 
 colnames(ecodata)
 
@@ -198,7 +198,7 @@ test = test[,!names(test) %in% c('Positive')]
 library(ggplot2)
 test = test[order(-test$CASEDEN),]
 
-png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/CaseDenVersusRPL.4.2.png", width=9,height=9,units='in', res=600,bg = 'transparent')
+png("../Visualization/CaseDenVersusRPL.4.2.png", width=9,height=9,units='in', res=600,bg = 'transparent')
 ggplot(test, aes(fill=RPL_THEMES, y=CASEDEN, x=reorder(COUNTY.NAME, -CASEDEN))) + 
     geom_bar(position="dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90), axis.ticks = element_blank()) + scale_y_continuous(breaks = seq(0,.75,by=.125), labels = seq(0,.75,by=.125), limits = c(0,.75)) + ylab("Cases by Population Density") + xlab("County") +
   coord_flip()
@@ -208,33 +208,14 @@ dev.off()
 ```{r}
 test$TestsbyPop = test$Total/test$E_TOTPOP
 max(test$TestsbyPop)
-png("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/TestsPopVersusRPL.4.2.png", width=9,height=9,units='in', res=600,bg = 'transparent')
+png("../Visualization/TestsPopVersusRPL.4.2.png", width=9,height=9,units='in', res=600,bg = 'transparent')
 ggplot(test, aes(fill=RPL_THEMES, y=TestsbyPop, x=reorder(COUNTY.NAME, -TestsbyPop))) + 
     geom_bar(position="dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90), axis.ticks = element_blank()) + scale_y_continuous(breaks = seq(0,.009,by=.0015), labels = seq(0,.009,by=.0015), limits = c(0,.009)) + ylab("Tests Performed by Population") + xlab("County") +
   coord_flip()
 dev.off()
 ```
 
-```{r}
-library(htmltab)
-##This dataset is updated each day at 2PM
-xpath = "/html/body/div[2]/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[3]/div/div/div/div/div[2]/div/div/div[1]"
-url <- "https://www.tn.gov/health/cedep/ncov.html"
-countytable <- htmltab(doc = url, which = xpath,rm_nodata_cols = F)
-countytable[is.na(countytable)] = 0
-colnames(countytable) = c("County", "Positive","Negative", "Deaths")
-countytable$Negative = gsub( ",", "", as.character(countytable$Negative))
-countytable$Positive = gsub( ",", "", as.character(countytable$Positive))
-countytable$Total = as.numeric(countytable$Positive) + as.numeric(countytable$Negative)
-countytable$PercentPositive = as.numeric(countytable$Positive) / as.numeric(countytable$Total)
-countytable$Mortality = as.numeric(countytable$Death) / as.numeric(countytable$Positive)
-```
 
-```{r}
-library(data.table)
-projection <- fread("curl https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip | tar -xf- --to-stdout *Hospitalization_all_locs.csv")
-projection = projection[which(projection$location_name == 'Tennessee'),]
-```
 
 
 
