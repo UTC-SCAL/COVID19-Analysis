@@ -29,6 +29,8 @@ write.csv(projection, "../Data/OutbreakProjections/IHMEProjections.csv")
 write.csv(tndata, "../Data/CaseData/TNCaseData.csv")
 write.csv(usadat_confirmed_time, "../Data/CaseData/AllUSCaseData.csv")
 write.csv(countytable, "../Data/CaseData/CountyTests.csv")
+
+remove(link, tf)
 ```
 
 ```{r}
@@ -74,7 +76,6 @@ frame.to_csv("../Data/UnacastSocialDistancing.csv", index=False)
 
 
 ```{r}
-
 library(tidyverse)
 
 specbreakdown <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQi60Tqg5FruuwAsJBXYvKJe0badlLsnS0k7B36hARrIrI8FMZOEVfTgQFLVsudSmUs6WZv6RYsKB6I/pub?gid=1081269126&single=true&output=csv")
@@ -153,10 +154,11 @@ multidate <- function(data, formats){
 
 
 total$Date <- multidate(total$Date, c("%m/%d/%Y","%m/%d/%y","%Y-%m-%d"))
-unique(test)
 
 
 write_csv(total, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/GlobalData.csv")
+
+remove(dates, i, num, path, pathdates, yesterdate, keep, multidate, allmatrix)
 ```
 
 
