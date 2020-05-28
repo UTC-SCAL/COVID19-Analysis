@@ -149,7 +149,7 @@ multidate <- function(data, formats){
         a[[i]]<- as.Date(data,format=formats[i])
         a[[1]][!is.na(a[[i]])]<-a[[i]][!is.na(a[[i]])]
         }
-    a[[1]]
+    # a[[1]]
     }
 
 

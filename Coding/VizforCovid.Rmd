@@ -39,3 +39,128 @@ ggplot(data = ham, aes(x = DATE, y = 1-Perc), lwd=2) + geom_line(color= 'red') +
 ggplot(data = ham) + geom_line(aes(x = DATE, y = POS_TESTS, color = 'red'), lwd=2) + geom_line(aes(x = DATE, y = TOTAL_TESTS, color = 'blue'), lwd=2) + theme(axis.text.x = element_text(angle = 90))  + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + ggtitle("Hamilton County Testing") + ylab("Tests") + scale_color_discrete(name = "Testing", labels = c("Total", "Positive"))
 ```
 
+```{r}
+
+test = ham[,c("POS_TESTS","TOTAL_TESTS")]
+test1 = cor(test)
+
+library(Hmisc)
+test2 = rcorr(as.matrix(test), type = c("pearson","spearman"))
+
+flattenCorrMatrix <- function(cormat, pmat) {
+  ut <- upper.tri(cormat)
+  data.frame(
+    row = rownames(cormat)[row(cormat)[ut]],
+    column = rownames(cormat)[col(cormat)[ut]],
+    cor  =(cormat)[ut],
+    p = pmat[ut]
+    )
+}
+
+flattenCorrMatrix(test2$r, test2$P)
+
+library(corrplot)
+corrplot(test1, type = "upper", order = "hclust", 
+         tl.col = "black")
+
+corrplot(test1, type="upper", order="hclust", 
+         p.mat = test2$P, sig.level = 0.01, insig = "blank")
+```
+
+```{r}
+
+library("PerformanceAnalytics")
+chart.Correlation(test, histogram=TRUE, pch=19)
+```
+
+```{r}
+# library(sf)
+zipdata = read.csv("/Users/peteway/Downloads/ZipCodes_0.csv")
+zipcases = zipcases[which(zipcases$DATE == '2020-05-22'),]
+zipmerge = merge(zipcases, zipdata, by = "CAT_DETAIL")
+```
+
+```{r}
+# zipmerge$CasesbyMinor = zipmerge$CAT_TOTALCASES/zipmerge$X2019.Minority.Population
+png("../Visualization/PercHispanic.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+
+zipmerge$HispPerc = zipmerge$X2019.Minority.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, CAT_TOTALCASES)
+ggplot(data = topten, aes(x=HispPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Hispanic") +xlim(0,1) + ggtitle("Ten Highest Case Zipcodes by Percent Hispanic")
+dev.off()
+```
+
+```{r}
+png("../Visualization/PercHispanicTopTenHisp.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+
+zipmerge$HispPerc = zipmerge$X2019.Minority.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, HispPerc)
+ggplot(data = topten, aes(x=HispPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Hispanic") +xlim(0,1) + ggtitle("Ten Highest Percent Hispanic")
+dev.off()
+```
+
+```{r}
+zipmerge$BlackPerc = zipmerge$X2019.Black.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, CAT_TOTALCASES)
+png("../Visualization/PercBlack.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+
+ggplot(data = topten, aes(x=BlackPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Black") +xlim(0,1) + ggtitle("Ten Highest Case Zipcodes by Percent Black")
+dev.off()
+```
+
+```{r}
+topten = top_n(zipmerge, 10, BlackPerc)
+png("../Visualization/PercBlackTopTenBlack.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+
+ggplot(data = topten, aes(x=BlackPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Black") +xlim(0,1) + ggtitle("Ten Highest Percent Black")
+dev.off()
+```
+
+```{r}
+zipmerge$WhitePerc = zipmerge$X2019.White.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, CAT_TOTALCASES)
+png("../Visualization/PercWhite.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+
+ggplot(data = topten, aes(x=WhitePerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population White") +xlim(0,1) + ggtitle("Ten Highest Case Zipcodes by Percent White")
+dev.off()
+```
+
+```{r}
+zipmerge$MinPerc = zipmerge$X2019.Minority.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, CAT_TOTALCASES)
+png("../Visualization/PercMinority.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+ggplot(data = topten, aes(x=MinPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Minority") +xlim(0,1) + ggtitle("Ten Highest Case Zipcodes by Percent Minority")
+dev.off()
+```
+
+```{r}
+# zipmerge$MinPerc = zipmerge$X2019.Minority.Population/zipmerge$X2019.Total.Population
+topten = top_n(zipmerge, 10, MinPerc)
+png("../Visualization/PercMinorityTopTenMinPerc.png", width=7,height=4,units='in', res=600,bg = 'transparent')
+ggplot(data = topten, aes(x=MinPerc,y=CAT_TOTALCASES,color= CAT_DETAIL)) + geom_point() +theme(axis.text.x = element_text(angle = 90)) + ylab("Total Cases by ZipCode") + xlab("Percent of Population Minority") +xlim(0,1) + ggtitle("Ten Highest Percent Minority")
+dev.off()
+```
+
+
+```{r}
+library(ggplot2)
+# zipmerge$CAT_TOTALCASESPERCENT = gsub( "%", "", as.character(zipmerge$CAT_TOTALCASESPERCENT))
+# zipmerge$CAT_TOTALCASESPERCENT = as.numeric(zipmerge$CAT_TOTALCASESPERCENT)
+nonzero = zipmerge[which(zipmerge$CAT_TOTALCASESPERCENT > 0),]
+png("../Visualization/PercofTotalbyZipcode.png", width=1080,height=680,units='px',res=200, bg = 'transparent')
+ggplot(data = nonzero) + geom_bar(aes(y=CAT_TOTALCASESPERCENT,x=reorder(CAT_DETAIL, -CAT_TOTALCASESPERCENT), fill = CAT_DETAIL),position="dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90), legend.position = "none") + ylab("Percent of Total County Cases") + xlab("") + ylim(0,30) + scale_fill_discrete(name = "") + ggtitle("Percent of County Total Cases by Zipcode")
+dev.off()
+# ggsave(
+#   "../Visualization/PercofTotalbyZipcode.png",
+#   plot,
+#   width = 8,
+#   height = 4.4,
+#   dpi = 1200
+# )
+```
+
+```{r}
+topten = top_n(zipmerge, 10, CAT_TOTALCASES)
+ggplot(data = topten) + geom_bar(aes(y=CAT_TOTALCASESPERCENT,x=reorder(CAT_DETAIL, -CAT_TOTALCASESPERCENT), fill = CAT_DETAIL),position="dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90),legend.position = "none") + ylab("Percent of Total County Cases") + xlab("Zipcode") + scale_fill_discrete(name = "Zipcode")
+```
+
