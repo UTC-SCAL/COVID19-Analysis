@@ -1,761 +1,491 @@
-DATE,CATEGORY,CAT_DETAIL,CAT_CASES_TOTAL,CAT_CASES_TOTAL_PERCENT,CAT_CASES_TOTAL_PERPOP,CAT_CASES_NEW,CAT_CASES_NEW_PERCENT,CAT_DEATHS_TOTAL,CAT_DEATHS_TOTAL_PERCENT,CAT_DEATHS_NEW,CAT_DEATHS_NEW_PERCENT
-2020-03-13,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-13,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-14,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-15,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-16,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-17,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-18,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-19,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-20,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-21,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-22,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-23,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-24,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-25,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-26,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-27,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-28,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-29,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-30,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-03-31,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-01,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-02,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-03,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-04,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-05,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-06,Age Range,0-10 years,3,3.53%,0.01%,NA,,NA,,NA,NA
-2020-04-06,Age Range,11-20 years,2,2.35%,0.00%,NA,,NA,,NA,NA
-2020-04-06,Age Range,21-30 years,6,7.06%,0.01%,NA,,NA,,NA,NA
-2020-04-06,Age Range,31-40 years,7,8.24%,0.01%,NA,,NA,,NA,NA
-2020-04-06,Age Range,41-50 years,16,18.82%,0.04%,NA,,NA,,NA,NA
-2020-04-06,Age Range,51-60 years,18,21.18%,0.04%,NA,,NA,,NA,NA
-2020-04-06,Age Range,61-70 years,17,20.00%,0.04%,NA,,NA,,NA,NA
-2020-04-06,Age Range,71-80 years,8,9.41%,0.03%,NA,,NA,,NA,NA
-2020-04-06,Age Range,81+ years,6,7.06%,0.04%,NA,,NA,,NA,NA
-2020-04-06,Age Range,Pending,2,2.35%,,NA,,NA,,NA,NA
-2020-04-07,Age Range,0-10 years,3,3.19%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-07,Age Range,11-20 years,2,2.13%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-07,Age Range,21-30 years,7,7.45%,0.01%,1,11.11%,NA,,NA,NA
-2020-04-07,Age Range,31-40 years,10,10.64%,0.02%,3,33.33%,NA,,NA,NA
-2020-04-07,Age Range,41-50 years,18,19.15%,0.04%,2,22.22%,NA,,NA,NA
-2020-04-07,Age Range,51-60 years,21,22.34%,0.04%,3,33.33%,NA,,NA,NA
-2020-04-07,Age Range,61-70 years,17,18.09%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-07,Age Range,71-80 years,9,9.57%,0.03%,1,11.11%,NA,,NA,NA
-2020-04-07,Age Range,81+ years,7,7.45%,0.05%,1,11.11%,NA,,NA,NA
-2020-04-07,Age Range,Pending,0,0.00%,,-2,-22.22%,NA,,NA,NA
-2020-04-08,Age Range,0-10 years,3,3.09%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-08,Age Range,11-20 years,2,2.06%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-08,Age Range,21-30 years,6,6.19%,0.01%,-1,-33.33%,NA,,NA,NA
-2020-04-08,Age Range,31-40 years,10,10.31%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-08,Age Range,41-50 years,19,19.59%,0.04%,1,33.33%,NA,,NA,NA
-2020-04-08,Age Range,51-60 years,22,22.68%,0.05%,1,33.33%,NA,,NA,NA
-2020-04-08,Age Range,61-70 years,18,18.56%,0.04%,1,33.33%,NA,,NA,NA
-2020-04-08,Age Range,71-80 years,10,10.31%,0.03%,1,33.33%,NA,,NA,NA
-2020-04-08,Age Range,81+ years,7,7.22%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-08,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,0-10 years,3,3.06%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,11-20 years,2,2.04%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,21-30 years,6,6.12%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,31-40 years,10,10.20%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,41-50 years,19,19.39%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,51-60 years,22,22.45%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,61-70 years,19,19.39%,0.04%,1,100.00%,NA,,NA,NA
-2020-04-09,Age Range,71-80 years,10,10.20%,0.03%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,81+ years,7,7.14%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-09,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-10,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-10,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-11,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-12,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-13,Age Range,0-10 years,3,2.80%,0.01%,NA,,NA,,NA,NA
-2020-04-13,Age Range,11-20 years,2,1.87%,0.00%,NA,,NA,,NA,NA
-2020-04-13,Age Range,21-30 years,6,5.61%,0.01%,NA,,NA,,NA,NA
-2020-04-13,Age Range,31-40 years,12,11.21%,0.02%,NA,,NA,,NA,NA
-2020-04-13,Age Range,41-50 years,20,18.69%,0.04%,NA,,NA,,NA,NA
-2020-04-13,Age Range,51-60 years,25,23.36%,0.05%,NA,,NA,,NA,NA
-2020-04-13,Age Range,61-70 years,20,18.69%,0.05%,NA,,NA,,NA,NA
-2020-04-13,Age Range,71-80 years,12,11.21%,0.04%,NA,,NA,,NA,NA
-2020-04-13,Age Range,81+ years,7,6.54%,0.05%,NA,,NA,,NA,NA
-2020-04-13,Age Range,Pending,0,0.00%,,NA,,NA,,NA,NA
-2020-04-14,Age Range,0-10 years,3,2.75%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,11-20 years,2,1.83%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,21-30 years,6,5.50%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,31-40 years,12,11.01%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,41-50 years,22,20.18%,0.05%,2,100.00%,NA,,NA,NA
-2020-04-14,Age Range,51-60 years,25,22.94%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,61-70 years,20,18.35%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,71-80 years,12,11.01%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,81+ years,7,6.42%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-14,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,0-10 years,3,2.73%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,11-20 years,2,1.82%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,21-30 years,7,6.36%,0.01%,1,100.00%,NA,,NA,NA
-2020-04-15,Age Range,31-40 years,12,10.91%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,41-50 years,22,20.00%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,51-60 years,25,22.73%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,61-70 years,20,18.18%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,71-80 years,12,10.91%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,81+ years,7,6.36%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-15,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,0-10 years,3,2.68%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,11-20 years,2,1.79%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,21-30 years,7,6.25%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,31-40 years,12,10.71%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,41-50 years,22,19.64%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,51-60 years,26,23.21%,0.06%,1,50.00%,NA,,NA,NA
-2020-04-16,Age Range,61-70 years,21,18.75%,0.05%,1,50.00%,NA,,NA,NA
-2020-04-16,Age Range,71-80 years,12,10.71%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,81+ years,7,6.25%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-16,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,0-10 years,3,2.61%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,11-20 years,2,1.74%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,21-30 years,7,6.09%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,31-40 years,13,11.30%,0.03%,1,33.33%,NA,,NA,NA
-2020-04-17,Age Range,41-50 years,22,19.13%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,51-60 years,27,23.48%,0.06%,1,33.33%,NA,,NA,NA
-2020-04-17,Age Range,61-70 years,21,18.26%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,71-80 years,13,11.30%,0.04%,1,33.33%,NA,,NA,NA
-2020-04-17,Age Range,81+ years,7,6.09%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-17,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-18,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-18,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-19,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-20,Age Range,0-10 years,3,2.48%,0.01%,NA,,NA,,NA,NA
-2020-04-20,Age Range,11-20 years,2,1.65%,0.00%,NA,,NA,,NA,NA
-2020-04-20,Age Range,21-30 years,8,6.61%,0.02%,NA,,NA,,NA,NA
-2020-04-20,Age Range,31-40 years,14,11.57%,0.03%,NA,,NA,,NA,NA
-2020-04-20,Age Range,41-50 years,22,18.18%,0.05%,NA,,NA,,NA,NA
-2020-04-20,Age Range,51-60 years,29,23.97%,0.06%,NA,,NA,,NA,NA
-2020-04-20,Age Range,61-70 years,23,19.01%,0.05%,NA,,NA,,NA,NA
-2020-04-20,Age Range,71-80 years,13,10.74%,0.04%,NA,,NA,,NA,NA
-2020-04-20,Age Range,81+ years,7,5.79%,0.05%,NA,,NA,,NA,NA
-2020-04-20,Age Range,Pending,0,0.00%,,NA,,NA,,NA,NA
-2020-04-21,Age Range,0-10 years,3,2.42%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,11-20 years,2,1.61%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,21-30 years,8,6.45%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,31-40 years,15,12.10%,0.03%,1,33.33%,NA,,NA,NA
-2020-04-21,Age Range,41-50 years,22,17.74%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,51-60 years,29,23.39%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,61-70 years,24,19.35%,0.06%,1,33.33%,NA,,NA,NA
-2020-04-21,Age Range,71-80 years,13,10.48%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-21,Age Range,81+ years,8,6.45%,0.05%,1,33.33%,NA,,NA,NA
-2020-04-21,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,0-10 years,3,2.34%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,11-20 years,2,1.56%,0.00%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,21-30 years,8,6.25%,0.02%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,31-40 years,15,11.72%,0.03%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,41-50 years,22,17.19%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,51-60 years,30,23.44%,0.06%,1,25.00%,NA,,NA,NA
-2020-04-22,Age Range,61-70 years,26,20.31%,0.06%,2,50.00%,NA,,NA,NA
-2020-04-22,Age Range,71-80 years,14,10.94%,0.05%,1,25.00%,NA,,NA,NA
-2020-04-22,Age Range,81+ years,8,6.25%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-22,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,0-10 years,3,2.24%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,11-20 years,4,2.99%,0.01%,2,33.33%,NA,,NA,NA
-2020-04-23,Age Range,21-30 years,10,7.46%,0.02%,2,33.33%,NA,,NA,NA
-2020-04-23,Age Range,31-40 years,16,11.94%,0.03%,1,16.67%,NA,,NA,NA
-2020-04-23,Age Range,41-50 years,22,16.42%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,51-60 years,31,23.13%,0.07%,1,16.67%,NA,,NA,NA
-2020-04-23,Age Range,61-70 years,26,19.40%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,71-80 years,14,10.45%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,81+ years,8,5.97%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-23,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-24,Age Range,0-10 years,4,2.84%,0.01%,1,14.29%,NA,,NA,NA
-2020-04-24,Age Range,11-20 years,3,2.13%,0.01%,-1,-14.29%,NA,,NA,NA
-2020-04-24,Age Range,21-30 years,12,8.51%,0.02%,2,28.57%,NA,,NA,NA
-2020-04-24,Age Range,31-40 years,16,11.35%,0.03%,0,0.00%,NA,,NA,NA
-2020-04-24,Age Range,41-50 years,25,17.73%,0.06%,3,42.86%,NA,,NA,NA
-2020-04-24,Age Range,51-60 years,33,23.40%,0.07%,2,28.57%,NA,,NA,NA
-2020-04-24,Age Range,61-70 years,26,18.44%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-24,Age Range,71-80 years,14,9.93%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-24,Age Range,81+ years,8,5.67%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-24,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-25,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-25,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-04-26,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-04-27,Age Range,0-10 years,5,3.36%,0.01%,NA,,NA,,NA,NA
-2020-04-27,Age Range,11-20 years,3,2.01%,0.01%,NA,,NA,,NA,NA
-2020-04-27,Age Range,21-30 years,13,8.72%,0.03%,NA,,NA,,NA,NA
-2020-04-27,Age Range,31-40 years,16,10.74%,0.03%,NA,,NA,,NA,NA
-2020-04-27,Age Range,41-50 years,27,18.12%,0.06%,NA,,NA,,NA,NA
-2020-04-27,Age Range,51-60 years,34,22.82%,0.07%,NA,,NA,,NA,NA
-2020-04-27,Age Range,61-70 years,28,18.79%,0.06%,NA,,NA,,NA,NA
-2020-04-27,Age Range,71-80 years,15,10.07%,0.05%,NA,,NA,,NA,NA
-2020-04-27,Age Range,81+ years,8,5.37%,0.05%,NA,,NA,,NA,NA
-2020-04-27,Age Range,Pending,0,0.00%,,NA,,NA,,NA,NA
-2020-04-28,Age Range,0-10 years,5,3.29%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,11-20 years,3,1.97%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,21-30 years,13,8.55%,0.03%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,31-40 years,17,11.18%,0.04%,1,33.33%,NA,,NA,NA
-2020-04-28,Age Range,41-50 years,27,17.76%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,51-60 years,36,23.68%,0.08%,2,66.67%,NA,,NA,NA
-2020-04-28,Age Range,61-70 years,28,18.42%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,71-80 years,15,9.87%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,81+ years,8,5.26%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-28,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,0-10 years,5,3.25%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,11-20 years,3,1.95%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,21-30 years,15,9.74%,0.03%,2,100.00%,NA,,NA,NA
-2020-04-29,Age Range,31-40 years,17,11.04%,0.04%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,41-50 years,27,17.53%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,51-60 years,36,23.38%,0.08%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,61-70 years,28,18.18%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,71-80 years,15,9.74%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,81+ years,8,5.19%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-29,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,0-10 years,5,3.16%,0.01%,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,11-20 years,4,2.53%,0.01%,1,25.00%,NA,,NA,NA
-2020-04-30,Age Range,21-30 years,15,9.49%,0.03%,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,31-40 years,18,11.39%,0.04%,1,25.00%,NA,,NA,NA
-2020-04-30,Age Range,41-50 years,27,17.09%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,51-60 years,37,23.42%,0.08%,1,25.00%,NA,,NA,NA
-2020-04-30,Age Range,61-70 years,28,17.72%,0.06%,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,71-80 years,16,10.13%,0.05%,1,25.00%,NA,,NA,NA
-2020-04-30,Age Range,81+ years,8,5.06%,0.05%,0,0.00%,NA,,NA,NA
-2020-04-30,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,0-10 years,5,3.07%,0.01%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,11-20 years,4,2.45%,0.01%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,21-30 years,17,10.43%,0.03%,2,40.00%,NA,,NA,NA
-2020-05-01,Age Range,31-40 years,20,12.27%,0.04%,2,40.00%,NA,,NA,NA
-2020-05-01,Age Range,41-50 years,27,16.56%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,51-60 years,37,22.70%,0.08%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,61-70 years,28,17.18%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,71-80 years,17,10.43%,0.06%,1,20.00%,NA,,NA,NA
-2020-05-01,Age Range,81+ years,8,4.91%,0.05%,0,0.00%,NA,,NA,NA
-2020-05-01,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-05-02,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-02,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-03,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-04,Age Range,0-10 years,5,2.75%,0.01%,NA,,NA,,NA,NA
-2020-05-04,Age Range,11-20 years,4,2.20%,0.01%,NA,,NA,,NA,NA
-2020-05-04,Age Range,21-30 years,22,12.09%,0.04%,NA,,NA,,NA,NA
-2020-05-04,Age Range,31-40 years,21,11.54%,0.04%,NA,,NA,,NA,NA
-2020-05-04,Age Range,41-50 years,31,17.03%,0.07%,NA,,NA,,NA,NA
-2020-05-04,Age Range,51-60 years,42,23.08%,0.09%,NA,,NA,,NA,NA
-2020-05-04,Age Range,61-70 years,31,17.03%,0.07%,NA,,NA,,NA,NA
-2020-05-04,Age Range,71-80 years,18,9.89%,0.06%,NA,,NA,,NA,NA
-2020-05-04,Age Range,81+ years,8,4.40%,0.05%,NA,,NA,,NA,NA
-2020-05-04,Age Range,Pending,0,0.00%,,NA,,NA,,NA,NA
-2020-05-05,Age Range,0-10 years,5,2.60%,0.01%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,11-20 years,8,4.17%,0.02%,4,40.00%,NA,,NA,NA
-2020-05-05,Age Range,21-30 years,24,12.50%,0.05%,2,20.00%,NA,,NA,NA
-2020-05-05,Age Range,31-40 years,25,13.02%,0.05%,4,40.00%,NA,,NA,NA
-2020-05-05,Age Range,41-50 years,31,16.15%,0.07%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,51-60 years,42,21.88%,0.09%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,61-70 years,31,16.15%,0.07%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,71-80 years,18,9.38%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,81+ years,8,4.17%,0.05%,0,0.00%,NA,,NA,NA
-2020-05-05,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-05-06,Age Range,0-10 years,11,5.16%,0.03%,6,28.57%,NA,,NA,NA
-2020-05-06,Age Range,11-20 years,12,5.63%,0.03%,4,19.05%,NA,,NA,NA
-2020-05-06,Age Range,21-30 years,28,13.15%,0.06%,4,19.05%,NA,,NA,NA
-2020-05-06,Age Range,31-40 years,29,13.62%,0.06%,4,19.05%,NA,,NA,NA
-2020-05-06,Age Range,41-50 years,33,15.49%,0.07%,2,9.52%,NA,,NA,NA
-2020-05-06,Age Range,51-60 years,42,19.72%,0.09%,0,0.00%,NA,,NA,NA
-2020-05-06,Age Range,61-70 years,32,15.02%,0.07%,1,4.76%,NA,,NA,NA
-2020-05-06,Age Range,71-80 years,18,8.45%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-06,Age Range,81+ years,8,3.76%,0.05%,0,0.00%,NA,,NA,NA
-2020-05-06,Age Range,Pending,0,0.00%,,0,0.00%,NA,,NA,NA
-2020-05-07,Age Range,0-10 years,11,4.70%,0.03%,0,0.00%,NA,,NA,NA
-2020-05-07,Age Range,11-20 years,14,5.98%,0.03%,2,9.52%,NA,,NA,NA
-2020-05-07,Age Range,21-30 years,29,12.39%,0.06%,1,4.76%,NA,,NA,NA
-2020-05-07,Age Range,31-40 years,31,13.25%,0.06%,2,9.52%,NA,,NA,NA
-2020-05-07,Age Range,41-50 years,35,14.96%,0.08%,2,9.52%,NA,,NA,NA
-2020-05-07,Age Range,51-60 years,43,18.38%,0.09%,1,4.76%,NA,,NA,NA
-2020-05-07,Age Range,61-70 years,34,14.53%,0.08%,2,9.52%,NA,,NA,NA
-2020-05-07,Age Range,71-80 years,18,7.69%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-07,Age Range,81+ years,8,3.42%,0.05%,0,0.00%,NA,,NA,NA
-2020-05-07,Age Range,Pending,11,4.70%,,11,52.38%,NA,,NA,NA
-2020-05-08,Age Range,0-10 years,14,5.83%,0.03%,3,50.00%,NA,,NA,NA
-2020-05-08,Age Range,11-20 years,17,7.08%,0.04%,3,50.00%,NA,,NA,NA
-2020-05-08,Age Range,21-30 years,32,13.33%,0.06%,3,50.00%,NA,,NA,NA
-2020-05-08,Age Range,31-40 years,35,14.58%,0.07%,4,66.67%,NA,,NA,NA
-2020-05-08,Age Range,41-50 years,38,15.83%,0.08%,3,50.00%,NA,,NA,NA
-2020-05-08,Age Range,51-60 years,44,18.33%,0.09%,1,16.67%,NA,,NA,NA
-2020-05-08,Age Range,61-70 years,34,14.17%,0.08%,0,0.00%,NA,,NA,NA
-2020-05-08,Age Range,71-80 years,18,7.50%,0.06%,0,0.00%,NA,,NA,NA
-2020-05-08,Age Range,81+ years,8,3.33%,0.05%,0,0.00%,NA,,NA,NA
-2020-05-08,Age Range,Pending,0,0.00%,,-11,-183.33%,NA,,NA,NA
-2020-05-09,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-09,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-10,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-11,Age Range,0-10 years,14,5.47%,0.03%,NA,,1,7.69%,NA,NA
-2020-05-11,Age Range,11-20 years,18,7.03%,0.04%,NA,,0,0.00%,NA,NA
-2020-05-11,Age Range,21-30 years,35,13.67%,0.07%,NA,,0,0.00%,NA,NA
-2020-05-11,Age Range,31-40 years,42,16.41%,0.09%,NA,,0,0.00%,NA,NA
-2020-05-11,Age Range,41-50 years,41,16.02%,0.09%,NA,,1,7.69%,NA,NA
-2020-05-11,Age Range,51-60 years,47,18.36%,0.10%,NA,,0,0.00%,NA,NA
-2020-05-11,Age Range,61-70 years,33,12.89%,0.08%,NA,,5,38.46%,NA,NA
-2020-05-11,Age Range,71-80 years,18,7.03%,0.06%,NA,,5,38.46%,NA,NA
-2020-05-11,Age Range,81+ years,8,3.13%,0.05%,NA,,1,7.69%,NA,NA
-2020-05-11,Age Range,Pending,0,0.00%,,NA,,0,0.00%,NA,NA
-2020-05-12,Age Range,0-10 years,16,5.95%,0.04%,2,15.38%,1,7.69%,0,NA
-2020-05-12,Age Range,11-20 years,21,7.81%,0.05%,3,23.08%,0,0.00%,0,NA
-2020-05-12,Age Range,21-30 years,36,13.38%,0.07%,1,7.69%,0,0.00%,0,NA
-2020-05-12,Age Range,31-40 years,45,16.73%,0.09%,3,23.08%,0,0.00%,0,NA
-2020-05-12,Age Range,41-50 years,44,16.36%,0.10%,3,23.08%,1,7.69%,0,NA
-2020-05-12,Age Range,51-60 years,47,17.47%,0.10%,0,0.00%,0,0.00%,0,NA
-2020-05-12,Age Range,61-70 years,33,12.27%,0.08%,0,0.00%,5,38.46%,0,NA
-2020-05-12,Age Range,71-80 years,19,7.06%,0.06%,1,7.69%,5,38.46%,0,NA
-2020-05-12,Age Range,81+ years,8,2.97%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-12,Age Range,Pending,0,0.00%,,0,0.00%,0,0.00%,0,NA
-2020-05-13,Age Range,0-10 years,24,7.74%,0.06%,8,19.51%,1,7.69%,0,NA
-2020-05-13,Age Range,11-20 years,24,7.74%,0.06%,3,7.32%,0,0.00%,0,NA
-2020-05-13,Age Range,21-30 years,48,15.48%,0.10%,12,29.27%,0,0.00%,0,NA
-2020-05-13,Age Range,31-40 years,56,18.06%,0.12%,11,26.83%,0,0.00%,0,NA
-2020-05-13,Age Range,41-50 years,50,16.13%,0.11%,6,14.63%,1,7.69%,0,NA
-2020-05-13,Age Range,51-60 years,47,15.16%,0.10%,0,0.00%,0,0.00%,0,NA
-2020-05-13,Age Range,61-70 years,34,10.97%,0.08%,1,2.44%,5,38.46%,0,NA
-2020-05-13,Age Range,71-80 years,19,6.13%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-13,Age Range,81+ years,8,2.58%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-13,Age Range,Pending,0,0.00%,,0,0.00%,0,0.00%,0,NA
-2020-05-14,Age Range,0-10 years,26,7.98%,0.06%,2,12.50%,1,7.69%,0,NA
-2020-05-14,Age Range,11-20 years,28,8.59%,0.06%,4,25.00%,0,0.00%,0,NA
-2020-05-14,Age Range,21-30 years,49,15.03%,0.10%,1,6.25%,0,0.00%,0,NA
-2020-05-14,Age Range,31-40 years,59,18.10%,0.12%,3,18.75%,0,0.00%,0,NA
-2020-05-14,Age Range,41-50 years,53,16.26%,0.12%,3,18.75%,1,7.69%,0,NA
-2020-05-14,Age Range,51-60 years,48,14.72%,0.10%,1,6.25%,0,0.00%,0,NA
-2020-05-14,Age Range,61-70 years,34,10.43%,0.08%,0,0.00%,5,38.46%,0,NA
-2020-05-14,Age Range,71-80 years,19,5.83%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-14,Age Range,81+ years,8,2.45%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-14,Age Range,Pending,2,0.61%,,2,12.50%,0,0.00%,0,NA
-2020-05-15,Age Range,0-10 years,25,7.31%,0.06%,-1,-6.25%,1,7.69%,0,NA
-2020-05-15,Age Range,11-20 years,30,8.77%,0.07%,2,12.50%,0,0.00%,0,NA
-2020-05-15,Age Range,21-30 years,49,14.33%,0.10%,0,0.00%,0,0.00%,0,NA
-2020-05-15,Age Range,31-40 years,59,17.25%,0.12%,0,0.00%,0,0.00%,0,NA
-2020-05-15,Age Range,41-50 years,53,15.50%,0.12%,0,0.00%,1,7.69%,0,NA
-2020-05-15,Age Range,51-60 years,51,14.91%,0.11%,3,18.75%,0,0.00%,0,NA
-2020-05-15,Age Range,61-70 years,34,9.94%,0.08%,0,0.00%,5,38.46%,0,NA
-2020-05-15,Age Range,71-80 years,19,5.56%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-15,Age Range,81+ years,8,2.34%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-15,Age Range,Pending,14,4.09%,,12,75.00%,0,0.00%,0,NA
-2020-05-16,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-16,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-17,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-18,Age Range,0-10 years,26,6.91%,0.06%,NA,,1,7.69%,NA,NA
-2020-05-18,Age Range,11-20 years,35,9.31%,0.08%,NA,,0,0.00%,NA,NA
-2020-05-18,Age Range,21-30 years,58,15.43%,0.12%,NA,,0,0.00%,NA,NA
-2020-05-18,Age Range,31-40 years,68,18.09%,0.14%,NA,,0,0.00%,NA,NA
-2020-05-18,Age Range,41-50 years,61,16.22%,0.14%,NA,,1,7.69%,NA,NA
-2020-05-18,Age Range,51-60 years,54,14.36%,0.11%,NA,,0,0.00%,NA,NA
-2020-05-18,Age Range,61-70 years,36,9.57%,0.08%,NA,,5,38.46%,NA,NA
-2020-05-18,Age Range,71-80 years,19,5.05%,0.06%,NA,,5,38.46%,NA,NA
-2020-05-18,Age Range,81+ years,8,2.13%,0.05%,NA,,1,7.69%,NA,NA
-2020-05-18,Age Range,Pending,11,2.93%,,NA,,0,0.00%,NA,NA
-2020-05-19,Age Range,0-10 years,27,6.68%,0.06%,1,3.57%,1,7.69%,0,NA
-2020-05-19,Age Range,11-20 years,38,9.41%,0.09%,3,10.71%,0,0.00%,0,NA
-2020-05-19,Age Range,21-30 years,66,16.34%,0.13%,8,28.57%,0,0.00%,0,NA
-2020-05-19,Age Range,31-40 years,78,19.31%,0.16%,10,35.71%,0,0.00%,0,NA
-2020-05-19,Age Range,41-50 years,70,17.33%,0.16%,9,32.14%,1,7.69%,0,NA
-2020-05-19,Age Range,51-60 years,54,13.37%,0.11%,0,0.00%,0,0.00%,0,NA
-2020-05-19,Age Range,61-70 years,38,9.41%,0.09%,2,7.14%,5,38.46%,0,NA
-2020-05-19,Age Range,71-80 years,19,4.70%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-19,Age Range,81+ years,8,1.98%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-19,Age Range,Pending,6,1.49%,,-5,-17.86%,0,0.00%,0,NA
-2020-05-20,Age Range,0-10 years,33,7.38%,0.08%,6,13.95%,1,7.69%,0,NA
-2020-05-20,Age Range,11-20 years,44,9.84%,0.10%,6,13.95%,0,0.00%,0,NA
-2020-05-20,Age Range,21-30 years,75,16.78%,0.15%,9,20.93%,0,0.00%,0,NA
-2020-05-20,Age Range,31-40 years,85,19.02%,0.18%,7,16.28%,0,0.00%,0,NA
-2020-05-20,Age Range,41-50 years,75,16.78%,0.17%,5,11.63%,1,7.69%,0,NA
-2020-05-20,Age Range,51-60 years,60,13.42%,0.13%,6,13.95%,0,0.00%,0,NA
-2020-05-20,Age Range,61-70 years,41,9.17%,0.09%,3,6.98%,5,38.46%,0,NA
-2020-05-20,Age Range,71-80 years,19,4.25%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-20,Age Range,81+ years,8,1.79%,0.05%,0,0.00%,1,7.69%,0,NA
-2020-05-20,Age Range,Pending,7,1.57%,,1,2.33%,0,0.00%,0,NA
-2020-05-21,Age Range,0-10 years,38,7.80%,0.09%,5,12.50%,1,7.69%,0,NA
-2020-05-21,Age Range,11-20 years,53,10.88%,0.12%,9,22.50%,0,0.00%,0,NA
-2020-05-21,Age Range,21-30 years,85,17.45%,0.17%,10,25.00%,0,0.00%,0,NA
-2020-05-21,Age Range,31-40 years,89,18.28%,0.19%,4,10.00%,0,0.00%,0,NA
-2020-05-21,Age Range,41-50 years,80,16.43%,0.18%,5,12.50%,1,7.69%,0,NA
-2020-05-21,Age Range,51-60 years,63,12.94%,0.13%,3,7.50%,0,0.00%,0,NA
-2020-05-21,Age Range,61-70 years,43,8.83%,0.10%,2,5.00%,5,38.46%,0,NA
-2020-05-21,Age Range,71-80 years,19,3.90%,0.06%,0,0.00%,5,38.46%,0,NA
-2020-05-21,Age Range,81+ years,9,1.85%,0.06%,1,2.50%,1,7.69%,0,NA
-2020-05-21,Age Range,Pending,8,1.64%,,1,2.50%,0,0.00%,0,NA
-2020-05-22,Age Range,0-10 years,46,8.66%,0.11%,8,18.18%,1,7.69%,0,NA
-2020-05-22,Age Range,11-20 years,61,11.49%,0.14%,8,18.18%,0,0.00%,0,NA
-2020-05-22,Age Range,21-30 years,92,17.33%,0.18%,7,15.91%,0,0.00%,0,NA
-2020-05-22,Age Range,31-40 years,102,19.21%,0.21%,13,29.55%,0,0.00%,0,NA
-2020-05-22,Age Range,41-50 years,88,16.57%,0.19%,8,18.18%,1,7.69%,0,NA
-2020-05-22,Age Range,51-60 years,63,11.86%,0.13%,0,0.00%,0,0.00%,0,NA
-2020-05-22,Age Range,61-70 years,44,8.29%,0.10%,1,2.27%,5,38.46%,0,NA
-2020-05-22,Age Range,71-80 years,20,3.77%,0.07%,1,2.27%,5,38.46%,0,NA
-2020-05-22,Age Range,81+ years,9,1.69%,0.06%,0,0.00%,1,7.69%,0,NA
-2020-05-22,Age Range,Pending,6,1.13%,,-2,-4.55%,0,0.00%,0,NA
-2020-05-23,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-23,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-24,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,0-10 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,11-20 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,21-30 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,31-40 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,41-50 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,51-60 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,61-70 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,71-80 years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,81+ years,NA,,,NA,,NA,,NA,NA
-2020-05-25,Age Range,Pending,NA,,,NA,,NA,,NA,NA
-2020-05-26,Age Range,0-10 years,69,9.62%,0.16%,NA,,1,6.67%,NA,NA
-2020-05-26,Age Range,11-20 years,83,11.58%,0.19%,NA,,0,0.00%,NA,NA
-2020-05-26,Age Range,21-30 years,121,16.88%,0.24%,NA,,0,0.00%,NA,NA
-2020-05-26,Age Range,31-40 years,168,23.43%,0.35%,NA,,0,0.00%,NA,NA
-2020-05-26,Age Range,41-50 years,107,14.92%,0.24%,NA,,1,6.67%,NA,NA
-2020-05-26,Age Range,51-60 years,76,10.60%,0.16%,NA,,1,6.67%,NA,NA
-2020-05-26,Age Range,61-70 years,51,7.11%,0.12%,NA,,5,33.33%,NA,NA
-2020-05-26,Age Range,71-80 years,22,3.07%,0.07%,NA,,5,33.33%,NA,NA
-2020-05-26,Age Range,81+ years,11,1.53%,0.07%,NA,,2,13.33%,NA,NA
-2020-05-26,Age Range,Pending,9,1.26%,,NA,,0,0.00%,NA,NA
-2020-05-27,Age Range,0-10 years,76,9.84%,0.18%,7,12.73%,1,6.67%,0,NA
-2020-05-27,Age Range,11-20 years,91,11.79%,0.21%,8,14.55%,0,0.00%,0,NA
-2020-05-27,Age Range,21-30 years,134,17.36%,0.27%,13,23.64%,0,0.00%,0,NA
-2020-05-27,Age Range,31-40 years,187,24.22%,0.39%,19,34.55%,0,0.00%,0,NA
-2020-05-27,Age Range,41-50 years,110,14.25%,0.24%,3,5.45%,1,6.67%,0,NA
-2020-05-27,Age Range,51-60 years,81,10.49%,0.17%,5,9.09%,1,6.67%,0,NA
-2020-05-27,Age Range,61-70 years,51,6.61%,0.12%,0,0.00%,5,33.33%,0,NA
-2020-05-27,Age Range,71-80 years,22,2.85%,0.07%,0,0.00%,5,33.33%,0,NA
-2020-05-27,Age Range,81+ years,11,1.42%,0.07%,0,0.00%,2,13.33%,0,NA
-2020-05-27,Age Range,Pending,9,1.17%,,0,0.00%,0,0.00%,0,NA
+DATE,CATEGORY,CAT_DETAIL,CAT_CASES_TOTAL,CAT_CASES_TOTAL_PERCENT,CAT_CASES_TOTAL_PERPOP,CAT_CASES_TOTAL_PER10K,CAT_CASES_NEW,CAT_CASES_NEW_PERCENT,CAT_DEATHS_TOTAL,CAT_DEATHS_TOTAL_PERCENT,CAT_DEATHS_TOTAL_PERPOP,CAT_DEATHS_TOTAL_PER10K,CAT_DEATHS_NEW,CAT_DEATHS_NEW_PERCENT
+2020-04-06,Age Range,0-10 years,3,3.53%,0.0071%,0.71,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,11-20 years,2,2.35%,0.0046%,0.46,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,21-30 years,6,7.06%,0.0120%,1.2,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,31-40 years,7,8.24%,0.0146%,1.46,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,41-50 years,16,18.82%,0.0354%,3.54,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,51-60 years,18,21.18%,0.0382%,3.82,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,61-70 years,17,20.00%,0.0393%,3.93,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,71-80 years,8,9.41%,0.0264%,2.64,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,81+ years,6,7.06%,0.0397%,3.97,NA,,NA,,,NA,NA,
+2020-04-06,Age Range,Pending,2,2.35%,,NA,NA,,NA,,,NA,NA,
+2020-04-07,Age Range,0-10 years,3,3.19%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-07,Age Range,11-20 years,2,2.13%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-07,Age Range,21-30 years,7,7.45%,0.0140%,1.4,1,11.11%,NA,,,NA,NA,
+2020-04-07,Age Range,31-40 years,10,10.64%,0.0208%,2.08,3,33.33%,NA,,,NA,NA,
+2020-04-07,Age Range,41-50 years,18,19.15%,0.0399%,3.99,2,22.22%,NA,,,NA,NA,
+2020-04-07,Age Range,51-60 years,21,22.34%,0.0446%,4.46,3,33.33%,NA,,,NA,NA,
+2020-04-07,Age Range,61-70 years,17,18.09%,0.0393%,3.93,0,0.00%,NA,,,NA,NA,
+2020-04-07,Age Range,71-80 years,9,9.57%,0.0297%,2.97,1,11.11%,NA,,,NA,NA,
+2020-04-07,Age Range,81+ years,7,7.45%,0.0463%,4.63,1,11.11%,NA,,,NA,NA,
+2020-04-07,Age Range,Pending,0,0.00%,,NA,-2,-22.22%,NA,,,NA,NA,
+2020-04-08,Age Range,0-10 years,3,3.09%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-08,Age Range,11-20 years,2,2.06%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-08,Age Range,21-30 years,6,6.19%,0.0120%,1.2,-1,-33.33%,NA,,,NA,NA,
+2020-04-08,Age Range,31-40 years,10,10.31%,0.0208%,2.08,0,0.00%,NA,,,NA,NA,
+2020-04-08,Age Range,41-50 years,19,19.59%,0.0421%,4.21,1,33.33%,NA,,,NA,NA,
+2020-04-08,Age Range,51-60 years,22,22.68%,0.0467%,4.67,1,33.33%,NA,,,NA,NA,
+2020-04-08,Age Range,61-70 years,18,18.56%,0.0416%,4.16,1,33.33%,NA,,,NA,NA,
+2020-04-08,Age Range,71-80 years,10,10.31%,0.0330%,3.3,1,33.33%,NA,,,NA,NA,
+2020-04-08,Age Range,81+ years,7,7.22%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-08,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,0-10 years,3,3.06%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,11-20 years,2,2.04%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,21-30 years,6,6.12%,0.0120%,1.2,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,31-40 years,10,10.20%,0.0208%,2.08,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,41-50 years,19,19.39%,0.0421%,4.21,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,51-60 years,22,22.45%,0.0467%,4.67,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,61-70 years,19,19.39%,0.0440%,4.4,1,100.00%,NA,,,NA,NA,
+2020-04-09,Age Range,71-80 years,10,10.20%,0.0330%,3.3,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,81+ years,7,7.14%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-09,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-13,Age Range,0-10 years,3,2.80%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-13,Age Range,11-20 years,2,1.87%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-13,Age Range,21-30 years,6,5.61%,0.0120%,1.2,0,0.00%,NA,,,NA,NA,
+2020-04-13,Age Range,31-40 years,12,11.21%,0.0250%,2.5,2,22.22%,NA,,,NA,NA,
+2020-04-13,Age Range,41-50 years,20,18.69%,0.0443%,4.43,1,11.11%,NA,,,NA,NA,
+2020-04-13,Age Range,51-60 years,25,23.36%,0.0531%,5.31,3,33.33%,NA,,,NA,NA,
+2020-04-13,Age Range,61-70 years,20,18.69%,0.0463%,4.63,1,11.11%,NA,,,NA,NA,
+2020-04-13,Age Range,71-80 years,12,11.21%,0.0396%,3.96,2,22.22%,NA,,,NA,NA,
+2020-04-13,Age Range,81+ years,7,6.54%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-13,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,0-10 years,3,2.75%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,11-20 years,2,1.83%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,21-30 years,6,5.50%,0.0120%,1.2,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,31-40 years,12,11.01%,0.0250%,2.5,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,41-50 years,22,20.18%,0.0487%,4.87,2,100.00%,NA,,,NA,NA,
+2020-04-14,Age Range,51-60 years,25,22.94%,0.0531%,5.31,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,61-70 years,20,18.35%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,71-80 years,12,11.01%,0.0396%,3.96,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,81+ years,7,6.42%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-14,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,0-10 years,3,2.73%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,11-20 years,2,1.82%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,21-30 years,7,6.36%,0.0140%,1.4,1,100.00%,NA,,,NA,NA,
+2020-04-15,Age Range,31-40 years,12,10.91%,0.0250%,2.5,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,41-50 years,22,20.00%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,51-60 years,25,22.73%,0.0531%,5.31,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,61-70 years,20,18.18%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,71-80 years,12,10.91%,0.0396%,3.96,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,81+ years,7,6.36%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-15,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,0-10 years,3,2.68%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,11-20 years,2,1.79%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,21-30 years,7,6.25%,0.0140%,1.4,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,31-40 years,12,10.71%,0.0250%,2.5,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,41-50 years,22,19.64%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,51-60 years,26,23.21%,0.0552%,5.52,1,50.00%,NA,,,NA,NA,
+2020-04-16,Age Range,61-70 years,21,18.75%,0.0486%,4.86,1,50.00%,NA,,,NA,NA,
+2020-04-16,Age Range,71-80 years,12,10.71%,0.0396%,3.96,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,81+ years,7,6.25%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-16,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,0-10 years,3,2.61%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,11-20 years,2,1.74%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,21-30 years,7,6.09%,0.0140%,1.4,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,31-40 years,13,11.30%,0.0270%,2.7,1,33.33%,NA,,,NA,NA,
+2020-04-17,Age Range,41-50 years,22,19.13%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,51-60 years,27,23.48%,0.0573%,5.73,1,33.33%,NA,,,NA,NA,
+2020-04-17,Age Range,61-70 years,21,18.26%,0.0486%,4.86,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,71-80 years,13,11.30%,0.0429%,4.29,1,33.33%,NA,,,NA,NA,
+2020-04-17,Age Range,81+ years,7,6.09%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-17,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,0-10 years,3,2.48%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,11-20 years,2,1.65%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,21-30 years,8,6.61%,0.0160%,1.6,1,16.67%,NA,,,NA,NA,
+2020-04-20,Age Range,31-40 years,14,11.57%,0.0291%,2.91,1,16.67%,NA,,,NA,NA,
+2020-04-20,Age Range,41-50 years,22,18.18%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,51-60 years,29,23.97%,0.0616%,6.16,2,33.33%,NA,,,NA,NA,
+2020-04-20,Age Range,61-70 years,23,19.01%,0.0532%,5.32,2,33.33%,NA,,,NA,NA,
+2020-04-20,Age Range,71-80 years,13,10.74%,0.0429%,4.29,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,81+ years,7,5.79%,0.0463%,4.63,0,0.00%,NA,,,NA,NA,
+2020-04-20,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,0-10 years,3,2.42%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,11-20 years,2,1.61%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,21-30 years,8,6.45%,0.0160%,1.6,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,31-40 years,15,12.10%,0.0312%,3.12,1,33.33%,NA,,,NA,NA,
+2020-04-21,Age Range,41-50 years,22,17.74%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,51-60 years,29,23.39%,0.0616%,6.16,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,61-70 years,24,19.35%,0.0555%,5.55,1,33.33%,NA,,,NA,NA,
+2020-04-21,Age Range,71-80 years,13,10.48%,0.0429%,4.29,0,0.00%,NA,,,NA,NA,
+2020-04-21,Age Range,81+ years,8,6.45%,0.0529%,5.29,1,33.33%,NA,,,NA,NA,
+2020-04-21,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,0-10 years,3,2.34%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,11-20 years,2,1.56%,0.0046%,0.46,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,21-30 years,8,6.25%,0.0160%,1.6,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,31-40 years,15,11.72%,0.0312%,3.12,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,41-50 years,22,17.19%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,51-60 years,30,23.44%,0.0637%,6.37,1,25.00%,NA,,,NA,NA,
+2020-04-22,Age Range,61-70 years,26,20.31%,0.0602%,6.02,2,50.00%,NA,,,NA,NA,
+2020-04-22,Age Range,71-80 years,14,10.94%,0.0462%,4.62,1,25.00%,NA,,,NA,NA,
+2020-04-22,Age Range,81+ years,8,6.25%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-22,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,0-10 years,3,2.24%,0.0071%,0.71,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,11-20 years,4,2.99%,0.0092%,0.92,2,33.33%,NA,,,NA,NA,
+2020-04-23,Age Range,21-30 years,10,7.46%,0.0201%,2.01,2,33.33%,NA,,,NA,NA,
+2020-04-23,Age Range,31-40 years,16,11.94%,0.0333%,3.33,1,16.67%,NA,,,NA,NA,
+2020-04-23,Age Range,41-50 years,22,16.42%,0.0487%,4.87,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,51-60 years,31,23.13%,0.0658%,6.58,1,16.67%,NA,,,NA,NA,
+2020-04-23,Age Range,61-70 years,26,19.40%,0.0602%,6.02,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,71-80 years,14,10.45%,0.0462%,4.62,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,81+ years,8,5.97%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-23,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-24,Age Range,0-10 years,4,2.84%,0.0095%,0.95,1,14.29%,NA,,,NA,NA,
+2020-04-24,Age Range,11-20 years,3,2.13%,0.0069%,0.69,-1,-14.29%,NA,,,NA,NA,
+2020-04-24,Age Range,21-30 years,12,8.51%,0.0241%,2.41,2,28.57%,NA,,,NA,NA,
+2020-04-24,Age Range,31-40 years,16,11.35%,0.0333%,3.33,0,0.00%,NA,,,NA,NA,
+2020-04-24,Age Range,41-50 years,25,17.73%,0.0554%,5.54,3,42.86%,NA,,,NA,NA,
+2020-04-24,Age Range,51-60 years,33,23.40%,0.0701%,7.01,2,28.57%,NA,,,NA,NA,
+2020-04-24,Age Range,61-70 years,26,18.44%,0.0602%,6.02,0,0.00%,NA,,,NA,NA,
+2020-04-24,Age Range,71-80 years,14,9.93%,0.0462%,4.62,0,0.00%,NA,,,NA,NA,
+2020-04-24,Age Range,81+ years,8,5.67%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-24,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-27,Age Range,0-10 years,5,3.36%,0.0119%,1.19,1,12.50%,NA,,,NA,NA,
+2020-04-27,Age Range,11-20 years,3,2.01%,0.0069%,0.69,0,0.00%,NA,,,NA,NA,
+2020-04-27,Age Range,21-30 years,13,8.72%,0.0261%,2.61,1,12.50%,NA,,,NA,NA,
+2020-04-27,Age Range,31-40 years,16,10.74%,0.0333%,3.33,0,0.00%,NA,,,NA,NA,
+2020-04-27,Age Range,41-50 years,27,18.12%,0.0598%,5.98,2,25.00%,NA,,,NA,NA,
+2020-04-27,Age Range,51-60 years,34,22.82%,0.0722%,7.22,1,12.50%,NA,,,NA,NA,
+2020-04-27,Age Range,61-70 years,28,18.79%,0.0648%,6.48,2,25.00%,NA,,,NA,NA,
+2020-04-27,Age Range,71-80 years,15,10.07%,0.0495%,4.95,1,12.50%,NA,,,NA,NA,
+2020-04-27,Age Range,81+ years,8,5.37%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-27,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,0-10 years,5,3.29%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,11-20 years,3,1.97%,0.0069%,0.69,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,21-30 years,13,8.55%,0.0261%,2.61,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,31-40 years,17,11.18%,0.0354%,3.54,1,33.33%,NA,,,NA,NA,
+2020-04-28,Age Range,41-50 years,27,17.76%,0.0598%,5.98,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,51-60 years,36,23.68%,0.0764%,7.64,2,66.67%,NA,,,NA,NA,
+2020-04-28,Age Range,61-70 years,28,18.42%,0.0648%,6.48,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,71-80 years,15,9.87%,0.0495%,4.95,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,81+ years,8,5.26%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-28,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,0-10 years,5,3.25%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,11-20 years,3,1.95%,0.0069%,0.69,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,21-30 years,15,9.74%,0.0301%,3.01,2,100.00%,NA,,,NA,NA,
+2020-04-29,Age Range,31-40 years,17,11.04%,0.0354%,3.54,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,41-50 years,27,17.53%,0.0598%,5.98,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,51-60 years,36,23.38%,0.0764%,7.64,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,61-70 years,28,18.18%,0.0648%,6.48,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,71-80 years,15,9.74%,0.0495%,4.95,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,81+ years,8,5.19%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-29,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,0-10 years,5,3.16%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,11-20 years,4,2.53%,0.0092%,0.92,1,25.00%,NA,,,NA,NA,
+2020-04-30,Age Range,21-30 years,15,9.49%,0.0301%,3.01,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,31-40 years,18,11.39%,0.0374%,3.74,1,25.00%,NA,,,NA,NA,
+2020-04-30,Age Range,41-50 years,27,17.09%,0.0598%,5.98,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,51-60 years,37,23.42%,0.0786%,7.86,1,25.00%,NA,,,NA,NA,
+2020-04-30,Age Range,61-70 years,28,17.72%,0.0648%,6.48,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,71-80 years,16,10.13%,0.0528%,5.28,1,25.00%,NA,,,NA,NA,
+2020-04-30,Age Range,81+ years,8,5.06%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-04-30,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,0-10 years,5,3.07%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,11-20 years,4,2.45%,0.0092%,0.92,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,21-30 years,17,10.43%,0.0341%,3.41,2,40.00%,NA,,,NA,NA,
+2020-05-01,Age Range,31-40 years,20,12.27%,0.0416%,4.16,2,40.00%,NA,,,NA,NA,
+2020-05-01,Age Range,41-50 years,27,16.56%,0.0598%,5.98,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,51-60 years,37,22.70%,0.0786%,7.86,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,61-70 years,28,17.18%,0.0648%,6.48,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,71-80 years,17,10.43%,0.0561%,5.61,1,20.00%,NA,,,NA,NA,
+2020-05-01,Age Range,81+ years,8,4.91%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-01,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-05-04,Age Range,0-10 years,5,2.75%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-05-04,Age Range,11-20 years,4,2.20%,0.0092%,0.92,0,0.00%,NA,,,NA,NA,
+2020-05-04,Age Range,21-30 years,22,12.09%,0.0441%,4.41,5,26.32%,NA,,,NA,NA,
+2020-05-04,Age Range,31-40 years,21,11.54%,0.0437%,4.37,1,5.26%,NA,,,NA,NA,
+2020-05-04,Age Range,41-50 years,31,17.03%,0.0687%,6.87,4,21.05%,NA,,,NA,NA,
+2020-05-04,Age Range,51-60 years,42,23.08%,0.0892%,8.92,5,26.32%,NA,,,NA,NA,
+2020-05-04,Age Range,61-70 years,31,17.03%,0.0717%,7.17,3,15.79%,NA,,,NA,NA,
+2020-05-04,Age Range,71-80 years,18,9.89%,0.0594%,5.94,1,5.26%,NA,,,NA,NA,
+2020-05-04,Age Range,81+ years,8,4.40%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-04,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,0-10 years,5,2.60%,0.0119%,1.19,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,11-20 years,8,4.17%,0.0184%,1.84,4,40.00%,NA,,,NA,NA,
+2020-05-05,Age Range,21-30 years,24,12.50%,0.0481%,4.81,2,20.00%,NA,,,NA,NA,
+2020-05-05,Age Range,31-40 years,25,13.02%,0.0520%,5.2,4,40.00%,NA,,,NA,NA,
+2020-05-05,Age Range,41-50 years,31,16.15%,0.0687%,6.87,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,51-60 years,42,21.88%,0.0892%,8.92,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,61-70 years,31,16.15%,0.0717%,7.17,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,71-80 years,18,9.38%,0.0594%,5.94,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,81+ years,8,4.17%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-05,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-05-06,Age Range,0-10 years,11,5.16%,0.0262%,2.62,6,28.57%,NA,,,NA,NA,
+2020-05-06,Age Range,11-20 years,12,5.63%,0.0276%,2.76,4,19.05%,NA,,,NA,NA,
+2020-05-06,Age Range,21-30 years,28,13.15%,0.0561%,5.61,4,19.05%,NA,,,NA,NA,
+2020-05-06,Age Range,31-40 years,29,13.62%,0.0603%,6.03,4,19.05%,NA,,,NA,NA,
+2020-05-06,Age Range,41-50 years,33,15.49%,0.0731%,7.31,2,9.52%,NA,,,NA,NA,
+2020-05-06,Age Range,51-60 years,42,19.72%,0.0892%,8.92,0,0.00%,NA,,,NA,NA,
+2020-05-06,Age Range,61-70 years,32,15.02%,0.0740%,7.4,1,4.76%,NA,,,NA,NA,
+2020-05-06,Age Range,71-80 years,18,8.45%,0.0594%,5.94,0,0.00%,NA,,,NA,NA,
+2020-05-06,Age Range,81+ years,8,3.76%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-06,Age Range,Pending,0,0.00%,,NA,0,0.00%,NA,,,NA,NA,
+2020-05-07,Age Range,0-10 years,11,4.70%,0.0262%,2.62,0,0.00%,NA,,,NA,NA,
+2020-05-07,Age Range,11-20 years,14,5.98%,0.0322%,3.22,2,9.52%,NA,,,NA,NA,
+2020-05-07,Age Range,21-30 years,29,12.39%,0.0581%,5.81,1,4.76%,NA,,,NA,NA,
+2020-05-07,Age Range,31-40 years,31,13.25%,0.0645%,6.45,2,9.52%,NA,,,NA,NA,
+2020-05-07,Age Range,41-50 years,35,14.96%,0.0775%,7.75,2,9.52%,NA,,,NA,NA,
+2020-05-07,Age Range,51-60 years,43,18.38%,0.0913%,9.13,1,4.76%,NA,,,NA,NA,
+2020-05-07,Age Range,61-70 years,34,14.53%,0.0787%,7.87,2,9.52%,NA,,,NA,NA,
+2020-05-07,Age Range,71-80 years,18,7.69%,0.0594%,5.94,0,0.00%,NA,,,NA,NA,
+2020-05-07,Age Range,81+ years,8,3.42%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-07,Age Range,Pending,11,4.70%,,NA,11,52.38%,NA,,,NA,NA,
+2020-05-08,Age Range,0-10 years,14,5.83%,0.0333%,3.33,3,50.00%,NA,,,NA,NA,
+2020-05-08,Age Range,11-20 years,17,7.08%,0.0391%,3.91,3,50.00%,NA,,,NA,NA,
+2020-05-08,Age Range,21-30 years,32,13.33%,0.0642%,6.42,3,50.00%,NA,,,NA,NA,
+2020-05-08,Age Range,31-40 years,35,14.58%,0.0728%,7.28,4,66.67%,NA,,,NA,NA,
+2020-05-08,Age Range,41-50 years,38,15.83%,0.0842%,8.42,3,50.00%,NA,,,NA,NA,
+2020-05-08,Age Range,51-60 years,44,18.33%,0.0934%,9.34,1,16.67%,NA,,,NA,NA,
+2020-05-08,Age Range,61-70 years,34,14.17%,0.0787%,7.87,0,0.00%,NA,,,NA,NA,
+2020-05-08,Age Range,71-80 years,18,7.50%,0.0594%,5.94,0,0.00%,NA,,,NA,NA,
+2020-05-08,Age Range,81+ years,8,3.33%,0.0529%,5.29,0,0.00%,NA,,,NA,NA,
+2020-05-08,Age Range,Pending,0,0.00%,,NA,-11,-183.33%,NA,,,NA,NA,
+2020-05-11,Age Range,0-10 years,14,5.47%,0.0333%,3.33,0,0.00%,1,7.69%,0.0024%,0.24,NA,
+2020-05-11,Age Range,11-20 years,18,7.03%,0.0414%,4.14,1,6.25%,0,0.00%,0.0000%,0,NA,
+2020-05-11,Age Range,21-30 years,35,13.67%,0.0702%,7.02,3,18.75%,0,0.00%,0.0000%,0,NA,
+2020-05-11,Age Range,31-40 years,42,16.41%,0.0873%,8.73,7,43.75%,0,0.00%,0.0000%,0,NA,
+2020-05-11,Age Range,41-50 years,41,16.02%,0.0908%,9.08,3,18.75%,1,7.69%,0.0022%,0.22,NA,
+2020-05-11,Age Range,51-60 years,47,18.36%,0.0998%,9.98,3,18.75%,0,0.00%,0.0000%,0,NA,
+2020-05-11,Age Range,61-70 years,33,12.89%,0.0763%,7.63,-1,-6.25%,5,38.46%,0.0116%,1.16,NA,
+2020-05-11,Age Range,71-80 years,18,7.03%,0.0594%,5.94,0,0.00%,5,38.46%,0.0165%,1.65,NA,
+2020-05-11,Age Range,81+ years,8,3.13%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,NA,
+2020-05-11,Age Range,Pending,0,0.00%,,NA,0,0.00%,0,0.00%,,NA,NA,
+2020-05-12,Age Range,0-10 years,16,5.95%,0.0381%,3.81,2,15.38%,1,7.69%,0.0024%,0.24,0,
+2020-05-12,Age Range,11-20 years,21,7.81%,0.0483%,4.83,3,23.08%,0,0.00%,0.0000%,0,0,
+2020-05-12,Age Range,21-30 years,36,13.38%,0.0722%,7.22,1,7.69%,0,0.00%,0.0000%,0,0,
+2020-05-12,Age Range,31-40 years,45,16.73%,0.0936%,9.36,3,23.08%,0,0.00%,0.0000%,0,0,
+2020-05-12,Age Range,41-50 years,44,16.36%,0.0975%,9.75,3,23.08%,1,7.69%,0.0022%,0.22,0,
+2020-05-12,Age Range,51-60 years,47,17.47%,0.0998%,9.98,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-12,Age Range,61-70 years,33,12.27%,0.0763%,7.63,0,0.00%,5,38.46%,0.0116%,1.16,0,
+2020-05-12,Age Range,71-80 years,19,7.06%,0.0627%,6.27,1,7.69%,5,38.46%,0.0165%,1.65,0,
+2020-05-12,Age Range,81+ years,8,2.97%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-12,Age Range,Pending,0,0.00%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-05-13,Age Range,0-10 years,24,7.74%,0.0572%,5.72,8,19.51%,1,7.69%,0.0024%,0.24,0,
+2020-05-13,Age Range,11-20 years,24,7.74%,0.0552%,5.52,3,7.32%,0,0.00%,0.0000%,0,0,
+2020-05-13,Age Range,21-30 years,48,15.48%,0.0962%,9.62,12,29.27%,0,0.00%,0.0000%,0,0,
+2020-05-13,Age Range,31-40 years,56,18.06%,0.1164%,11.64,11,26.83%,0,0.00%,0.0000%,0,0,
+2020-05-13,Age Range,41-50 years,50,16.13%,0.1108%,11.08,6,14.63%,1,7.69%,0.0022%,0.22,0,
+2020-05-13,Age Range,51-60 years,47,15.16%,0.0998%,9.98,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-13,Age Range,61-70 years,34,10.97%,0.0787%,7.87,1,2.44%,5,38.46%,0.0116%,1.16,0,
+2020-05-13,Age Range,71-80 years,19,6.13%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-13,Age Range,81+ years,8,2.58%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-13,Age Range,Pending,0,0.00%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-05-14,Age Range,0-10 years,26,7.98%,0.0619%,6.19,2,12.50%,1,7.69%,0.0024%,0.24,0,
+2020-05-14,Age Range,11-20 years,28,8.59%,0.0644%,6.44,4,25.00%,0,0.00%,0.0000%,0,0,
+2020-05-14,Age Range,21-30 years,49,15.03%,0.0982%,9.82,1,6.25%,0,0.00%,0.0000%,0,0,
+2020-05-14,Age Range,31-40 years,59,18.10%,0.1227%,12.27,3,18.75%,0,0.00%,0.0000%,0,0,
+2020-05-14,Age Range,41-50 years,53,16.26%,0.1174%,11.74,3,18.75%,1,7.69%,0.0022%,0.22,0,
+2020-05-14,Age Range,51-60 years,48,14.72%,0.1019%,10.19,1,6.25%,0,0.00%,0.0000%,0,0,
+2020-05-14,Age Range,61-70 years,34,10.43%,0.0787%,7.87,0,0.00%,5,38.46%,0.0116%,1.16,0,
+2020-05-14,Age Range,71-80 years,19,5.83%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-14,Age Range,81+ years,8,2.45%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-14,Age Range,Pending,2,0.61%,,NA,2,12.50%,0,0.00%,,NA,0,
+2020-05-15,Age Range,0-10 years,25,7.31%,0.0595%,5.95,-1,-6.25%,1,7.69%,0.0024%,0.24,0,
+2020-05-15,Age Range,11-20 years,30,8.77%,0.0690%,6.9,2,12.50%,0,0.00%,0.0000%,0,0,
+2020-05-15,Age Range,21-30 years,49,14.33%,0.0982%,9.82,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-15,Age Range,31-40 years,59,17.25%,0.1227%,12.27,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-15,Age Range,41-50 years,53,15.50%,0.1174%,11.74,0,0.00%,1,7.69%,0.0022%,0.22,0,
+2020-05-15,Age Range,51-60 years,51,14.91%,0.1083%,10.83,3,18.75%,0,0.00%,0.0000%,0,0,
+2020-05-15,Age Range,61-70 years,34,9.94%,0.0787%,7.87,0,0.00%,5,38.46%,0.0116%,1.16,0,
+2020-05-15,Age Range,71-80 years,19,5.56%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-15,Age Range,81+ years,8,2.34%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-15,Age Range,Pending,14,4.09%,,NA,12,75.00%,0,0.00%,,NA,0,
+2020-05-18,Age Range,0-10 years,26,6.91%,0.0619%,6.19,1,2.94%,1,7.69%,0.0024%,0.24,0,
+2020-05-18,Age Range,11-20 years,35,9.31%,0.0806%,8.06,5,14.71%,0,0.00%,0.0000%,0,0,
+2020-05-18,Age Range,21-30 years,58,15.43%,0.1163%,11.63,9,26.47%,0,0.00%,0.0000%,0,0,
+2020-05-18,Age Range,31-40 years,68,18.09%,0.1414%,14.14,9,26.47%,0,0.00%,0.0000%,0,0,
+2020-05-18,Age Range,41-50 years,61,16.22%,0.1351%,13.51,8,23.53%,1,7.69%,0.0022%,0.22,0,
+2020-05-18,Age Range,51-60 years,54,14.36%,0.1147%,11.47,3,8.82%,0,0.00%,0.0000%,0,0,
+2020-05-18,Age Range,61-70 years,36,9.57%,0.0833%,8.33,2,5.88%,5,38.46%,0.0116%,1.16,0,
+2020-05-18,Age Range,71-80 years,19,5.05%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-18,Age Range,81+ years,8,2.13%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-18,Age Range,Pending,11,2.93%,,NA,-3,-8.82%,0,0.00%,,NA,0,
+2020-05-19,Age Range,0-10 years,27,6.68%,0.0643%,6.43,1,3.57%,1,7.69%,0.0024%,0.24,0,
+2020-05-19,Age Range,11-20 years,38,9.41%,0.0875%,8.75,3,10.71%,0,0.00%,0.0000%,0,0,
+2020-05-19,Age Range,21-30 years,66,16.34%,0.1323%,13.23,8,28.57%,0,0.00%,0.0000%,0,0,
+2020-05-19,Age Range,31-40 years,78,19.31%,0.1622%,16.22,10,35.71%,0,0.00%,0.0000%,0,0,
+2020-05-19,Age Range,41-50 years,70,17.33%,0.1551%,15.51,9,32.14%,1,7.69%,0.0022%,0.22,0,
+2020-05-19,Age Range,51-60 years,54,13.37%,0.1147%,11.47,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-19,Age Range,61-70 years,38,9.41%,0.0879%,8.79,2,7.14%,5,38.46%,0.0116%,1.16,0,
+2020-05-19,Age Range,71-80 years,19,4.70%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-19,Age Range,81+ years,8,1.98%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-19,Age Range,Pending,6,1.49%,,NA,-5,-17.86%,0,0.00%,,NA,0,
+2020-05-20,Age Range,0-10 years,33,7.38%,0.0786%,7.86,6,13.95%,1,7.69%,0.0024%,0.24,0,
+2020-05-20,Age Range,11-20 years,44,9.84%,0.1013%,10.13,6,13.95%,0,0.00%,0.0000%,0,0,
+2020-05-20,Age Range,21-30 years,75,16.78%,0.1504%,15.04,9,20.93%,0,0.00%,0.0000%,0,0,
+2020-05-20,Age Range,31-40 years,85,19.02%,0.1768%,17.68,7,16.28%,0,0.00%,0.0000%,0,0,
+2020-05-20,Age Range,41-50 years,75,16.78%,0.1661%,16.61,5,11.63%,1,7.69%,0.0022%,0.22,0,
+2020-05-20,Age Range,51-60 years,60,13.42%,0.1274%,12.74,6,13.95%,0,0.00%,0.0000%,0,0,
+2020-05-20,Age Range,61-70 years,41,9.17%,0.0949%,9.49,3,6.98%,5,38.46%,0.0116%,1.16,0,
+2020-05-20,Age Range,71-80 years,19,4.25%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-20,Age Range,81+ years,8,1.79%,0.0529%,5.29,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-20,Age Range,Pending,7,1.57%,,NA,1,2.33%,0,0.00%,,NA,0,
+2020-05-21,Age Range,0-10 years,38,7.80%,0.0905%,9.05,5,12.50%,1,7.69%,0.0024%,0.24,0,
+2020-05-21,Age Range,11-20 years,53,10.88%,0.1220%,12.2,9,22.50%,0,0.00%,0.0000%,0,0,
+2020-05-21,Age Range,21-30 years,85,17.45%,0.1704%,17.04,10,25.00%,0,0.00%,0.0000%,0,0,
+2020-05-21,Age Range,31-40 years,89,18.28%,0.1851%,18.51,4,10.00%,0,0.00%,0.0000%,0,0,
+2020-05-21,Age Range,41-50 years,80,16.43%,0.1772%,17.72,5,12.50%,1,7.69%,0.0022%,0.22,0,
+2020-05-21,Age Range,51-60 years,63,12.94%,0.1338%,13.38,3,7.50%,0,0.00%,0.0000%,0,0,
+2020-05-21,Age Range,61-70 years,43,8.83%,0.0995%,9.95,2,5.00%,5,38.46%,0.0116%,1.16,0,
+2020-05-21,Age Range,71-80 years,19,3.90%,0.0627%,6.27,0,0.00%,5,38.46%,0.0165%,1.65,0,
+2020-05-21,Age Range,81+ years,9,1.85%,0.0595%,5.95,1,2.50%,1,7.69%,0.0066%,0.66,0,
+2020-05-21,Age Range,Pending,8,1.64%,,NA,1,2.50%,0,0.00%,,NA,0,
+2020-05-22,Age Range,0-10 years,46,8.66%,0.1096%,10.96,8,18.18%,1,7.69%,0.0024%,0.24,0,
+2020-05-22,Age Range,11-20 years,61,11.49%,0.1404%,14.04,8,18.18%,0,0.00%,0.0000%,0,0,
+2020-05-22,Age Range,21-30 years,92,17.33%,0.1845%,18.45,7,15.91%,0,0.00%,0.0000%,0,0,
+2020-05-22,Age Range,31-40 years,102,19.21%,0.2121%,21.21,13,29.55%,0,0.00%,0.0000%,0,0,
+2020-05-22,Age Range,41-50 years,88,16.57%,0.1949%,19.49,8,18.18%,1,7.69%,0.0022%,0.22,0,
+2020-05-22,Age Range,51-60 years,63,11.86%,0.1338%,13.38,0,0.00%,0,0.00%,0.0000%,0,0,
+2020-05-22,Age Range,61-70 years,44,8.29%,0.1018%,10.18,1,2.27%,5,38.46%,0.0116%,1.16,0,
+2020-05-22,Age Range,71-80 years,20,3.77%,0.0660%,6.6,1,2.27%,5,38.46%,0.0165%,1.65,0,
+2020-05-22,Age Range,81+ years,9,1.69%,0.0595%,5.95,0,0.00%,1,7.69%,0.0066%,0.66,0,
+2020-05-22,Age Range,Pending,6,1.13%,,NA,-2,-4.55%,0,0.00%,,NA,0,
+2020-05-26,Age Range,0-10 years,69,9.62%,0.1643%,16.43,23,12.37%,1,6.67%,0.0024%,0.24,0,0.00%
+2020-05-26,Age Range,11-20 years,83,11.58%,0.1910%,19.1,22,11.83%,0,0.00%,0.0000%,0,0,0.00%
+2020-05-26,Age Range,21-30 years,121,16.88%,0.2426%,24.26,29,15.59%,0,0.00%,0.0000%,0,0,0.00%
+2020-05-26,Age Range,31-40 years,168,23.43%,0.3493%,34.93,66,35.48%,0,0.00%,0.0000%,0,0,0.00%
+2020-05-26,Age Range,41-50 years,107,14.92%,0.2370%,23.7,19,10.22%,1,6.67%,0.0022%,0.22,0,0.00%
+2020-05-26,Age Range,51-60 years,76,10.60%,0.1614%,16.14,13,6.99%,1,6.67%,0.0021%,0.21,1,50.00%
+2020-05-26,Age Range,61-70 years,51,7.11%,0.1180%,11.8,7,3.76%,5,33.33%,0.0116%,1.16,0,0.00%
+2020-05-26,Age Range,71-80 years,22,3.07%,0.0726%,7.26,2,1.08%,5,33.33%,0.0165%,1.65,0,0.00%
+2020-05-26,Age Range,81+ years,11,1.53%,0.0727%,7.27,2,1.08%,2,13.33%,0.0132%,1.32,1,50.00%
+2020-05-26,Age Range,Pending,9,1.26%,,NA,3,1.61%,0,0.00%,,NA,0,0.00%
+2020-05-27,Age Range,0-10 years,76,9.84%,0.1810%,18.1,7,12.73%,1,6.67%,0.0024%,0.24,0,
+2020-05-27,Age Range,11-20 years,91,11.79%,0.2095%,20.95,8,14.55%,0,0.00%,0.0000%,0,0,
+2020-05-27,Age Range,21-30 years,134,17.36%,0.2687%,26.87,13,23.64%,0,0.00%,0.0000%,0,0,
+2020-05-27,Age Range,31-40 years,187,24.22%,0.3889%,38.89,19,34.55%,0,0.00%,0.0000%,0,0,
+2020-05-27,Age Range,41-50 years,110,14.25%,0.2437%,24.37,3,5.45%,1,6.67%,0.0022%,0.22,0,
+2020-05-27,Age Range,51-60 years,81,10.49%,0.1720%,17.2,5,9.09%,1,6.67%,0.0021%,0.21,0,
+2020-05-27,Age Range,61-70 years,51,6.61%,0.1180%,11.8,0,0.00%,5,33.33%,0.0116%,1.16,0,
+2020-05-27,Age Range,71-80 years,22,2.85%,0.0726%,7.26,0,0.00%,5,33.33%,0.0165%,1.65,0,
+2020-05-27,Age Range,81+ years,11,1.42%,0.0727%,7.27,0,0.00%,2,13.33%,0.0132%,1.32,0,
+2020-05-27,Age Range,Pending,9,1.17%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-05-28,Age Range,0-10 years,85,10.08%,0.2025%,20.25,9,12.68%,1,6.67%,0.0024%,0.24,0,
+2020-05-28,Age Range,11-20 years,99,11.74%,0.2279%,22.79,8,11.27%,0,0.00%,0.0000%,0,0,
+2020-05-28,Age Range,21-30 years,148,17.56%,0.2967%,29.67,14,19.72%,0,0.00%,0.0000%,0,0,
+2020-05-28,Age Range,31-40 years,201,23.84%,0.4180%,41.8,14,19.72%,0,0.00%,0.0000%,0,0,
+2020-05-28,Age Range,41-50 years,121,14.35%,0.2680%,26.8,11,15.49%,1,6.67%,0.0022%,0.22,0,
+2020-05-28,Age Range,51-60 years,92,10.91%,0.1954%,19.54,11,15.49%,1,6.67%,0.0021%,0.21,0,
+2020-05-28,Age Range,61-70 years,55,6.52%,0.1272%,12.72,4,5.63%,5,33.33%,0.0116%,1.16,0,
+2020-05-28,Age Range,71-80 years,22,2.61%,0.0726%,7.26,0,0.00%,5,33.33%,0.0165%,1.65,0,
+2020-05-28,Age Range,81+ years,11,1.30%,0.0727%,7.27,0,0.00%,2,13.33%,0.0132%,1.32,0,
+2020-05-28,Age Range,Pending,9,1.07%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-05-29,Age Range,0-10 years,95,10.12%,0.2263%,22.63,10,10.42%,1,6.67%,0.0024%,0.24,0,
+2020-05-29,Age Range,11-20 years,108,11.50%,0.2486%,24.86,9,9.38%,0,0.00%,0.0000%,0,0,
+2020-05-29,Age Range,21-30 years,178,18.96%,0.3569%,35.69,30,31.25%,0,0.00%,0.0000%,0,0,
+2020-05-29,Age Range,31-40 years,231,24.60%,0.4803%,48.03,30,31.25%,0,0.00%,0.0000%,0,0,
+2020-05-29,Age Range,41-50 years,133,14.16%,0.2946%,29.46,12,12.50%,1,6.67%,0.0022%,0.22,0,
+2020-05-29,Age Range,51-60 years,96,10.22%,0.2039%,20.39,4,4.17%,1,6.67%,0.0021%,0.21,0,
+2020-05-29,Age Range,61-70 years,57,6.07%,0.1319%,13.19,2,2.08%,5,33.33%,0.0116%,1.16,0,
+2020-05-29,Age Range,71-80 years,22,2.34%,0.0726%,7.26,0,0.00%,5,33.33%,0.0165%,1.65,0,
+2020-05-29,Age Range,81+ years,12,1.28%,0.0793%,7.93,1,1.04%,2,13.33%,0.0132%,1.32,0,
+2020-05-29,Age Range,Pending,7,0.75%,,NA,-2,-2.08%,0,0.00%,,NA,0,
+2020-06-01,Age Range,0-10 years,112,9.89%,0.2668%,26.68,17,8.81%,1,6.67%,0.0024%,0.24,0,
+2020-06-01,Age Range,11-20 years,136,12.01%,0.3130%,31.3,28,14.51%,0,0.00%,0.0000%,0,0,
+2020-06-01,Age Range,21-30 years,222,19.61%,0.4451%,44.51,44,22.80%,0,0.00%,0.0000%,0,0,
+2020-06-01,Age Range,31-40 years,283,25.00%,0.5885%,58.85,52,26.94%,0,0.00%,0.0000%,0,0,
+2020-06-01,Age Range,41-50 years,168,14.84%,0.3722%,37.22,35,18.13%,1,6.67%,0.0022%,0.22,0,
+2020-06-01,Age Range,51-60 years,109,9.63%,0.2315%,23.15,13,6.74%,1,6.67%,0.0021%,0.21,0,
+2020-06-01,Age Range,61-70 years,61,5.39%,0.1411%,14.11,4,2.07%,5,33.33%,0.0116%,1.16,0,
+2020-06-01,Age Range,71-80 years,22,1.94%,0.0726%,7.26,0,0.00%,5,33.33%,0.0165%,1.65,0,
+2020-06-01,Age Range,81+ years,12,1.06%,0.0793%,7.93,0,0.00%,2,13.33%,0.0132%,1.32,0,
+2020-06-01,Age Range,Pending,7,0.62%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-02,Age Range,0-10 years,116,9.85%,0.2763%,27.63,4,8.70%,1,5.88%,0.0024%,0.24,0,0.00%
+2020-06-02,Age Range,11-20 years,145,12.31%,0.3337%,33.37,9,19.57%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-02,Age Range,21-30 years,233,19.78%,0.4672%,46.72,11,23.91%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-02,Age Range,31-40 years,292,24.79%,0.6072%,60.72,9,19.57%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-02,Age Range,41-50 years,173,14.69%,0.3832%,38.32,5,10.87%,2,11.76%,0.0044%,0.44,1,50.00%
+2020-06-02,Age Range,51-60 years,111,9.42%,0.2357%,23.57,2,4.35%,1,5.88%,0.0021%,0.21,0,0.00%
+2020-06-02,Age Range,61-70 years,63,5.35%,0.1458%,14.58,2,4.35%,6,35.29%,0.0139%,1.39,1,50.00%
+2020-06-02,Age Range,71-80 years,24,2.04%,0.0792%,7.92,2,4.35%,5,29.41%,0.0165%,1.65,0,0.00%
+2020-06-02,Age Range,81+ years,13,1.10%,0.0859%,8.59,1,2.17%,2,11.76%,0.0132%,1.32,0,0.00%
+2020-06-02,Age Range,Pending,8,0.68%,,NA,1,2.17%,0,0.00%,,NA,0,0.00%
+2020-06-03,Age Range,0-10 years,117,9.60%,0.2787%,27.87,1,2.44%,1,5.56%,0.0024%,0.24,0,0.00%
+2020-06-03,Age Range,11-20 years,149,12.22%,0.3429%,34.29,4,9.76%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-03,Age Range,21-30 years,246,20.18%,0.4932%,49.32,13,31.71%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-03,Age Range,31-40 years,301,24.69%,0.6259%,62.59,9,21.95%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-03,Age Range,41-50 years,177,14.52%,0.3921%,39.21,4,9.76%,2,11.11%,0.0044%,0.44,0,0.00%
+2020-06-03,Age Range,51-60 years,117,9.60%,0.2485%,24.85,6,14.63%,1,5.56%,0.0021%,0.21,0,0.00%
+2020-06-03,Age Range,61-70 years,66,5.41%,0.1527%,15.27,3,7.32%,6,33.33%,0.0139%,1.39,0,0.00%
+2020-06-03,Age Range,71-80 years,25,2.05%,0.0825%,8.25,1,2.44%,5,27.78%,0.0165%,1.65,0,0.00%
+2020-06-03,Age Range,81+ years,13,1.07%,0.0859%,8.59,0,0.00%,3,16.67%,0.0198%,1.98,1,100.00%
+2020-06-03,Age Range,Pending,8,0.66%,,NA,0,0.00%,0,0.00%,,NA,0,0.00%
+2020-06-04,Age Range,0-10 years,118,9.25%,0.2811%,28.11,1,1.79%,1,5.26%,0.0024%,0.24,0,0.00%
+2020-06-04,Age Range,11-20 years,157,12.31%,0.3614%,36.14,8,14.29%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-04,Age Range,21-30 years,263,20.63%,0.5273%,52.73,17,30.36%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-04,Age Range,31-40 years,321,25.18%,0.6675%,66.75,20,35.71%,1,5.26%,0.0021%,0.21,1,100.00%
+2020-06-04,Age Range,41-50 years,184,14.43%,0.4076%,40.76,7,12.50%,2,10.53%,0.0044%,0.44,0,0.00%
+2020-06-04,Age Range,51-60 years,120,9.41%,0.2548%,25.48,3,5.36%,1,5.26%,0.0021%,0.21,0,0.00%
+2020-06-04,Age Range,61-70 years,66,5.18%,0.1527%,15.27,0,0.00%,6,31.58%,0.0139%,1.39,0,0.00%
+2020-06-04,Age Range,71-80 years,25,1.96%,0.0825%,8.25,0,0.00%,5,26.32%,0.0165%,1.65,0,0.00%
+2020-06-04,Age Range,81+ years,14,1.10%,0.0925%,9.25,1,1.79%,3,15.79%,0.0198%,1.98,0,0.00%
+2020-06-04,Age Range,Pending,7,0.55%,,NA,-1,-1.79%,0,0.00%,,NA,0,0.00%
+2020-06-05,Age Range,0-10 years,131,9.49%,0.3120%,31.2,13,12.26%,1,5.26%,0.0024%,0.24,0,
+2020-06-05,Age Range,11-20 years,168,12.17%,0.3867%,38.67,11,10.38%,0,0.00%,0.0000%,0,0,
+2020-06-05,Age Range,21-30 years,290,21.00%,0.5815%,58.15,27,25.47%,0,0.00%,0.0000%,0,0,
+2020-06-05,Age Range,31-40 years,344,24.91%,0.7153%,71.53,23,21.70%,1,5.26%,0.0021%,0.21,0,
+2020-06-05,Age Range,41-50 years,196,14.19%,0.4342%,43.42,12,11.32%,2,10.53%,0.0044%,0.44,0,
+2020-06-05,Age Range,51-60 years,132,9.56%,0.2803%,28.03,12,11.32%,1,5.26%,0.0021%,0.21,0,
+2020-06-05,Age Range,61-70 years,73,5.29%,0.1689%,16.89,7,6.60%,6,31.58%,0.0139%,1.39,0,
+2020-06-05,Age Range,71-80 years,26,1.88%,0.0858%,8.58,1,0.94%,5,26.32%,0.0165%,1.65,0,
+2020-06-05,Age Range,81+ years,14,1.01%,0.0925%,9.25,0,0.00%,3,15.79%,0.0198%,1.98,0,
+2020-06-05,Age Range,Pending,7,0.51%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-08,Age Range,0-10 years,143,9.62%,0.3406%,34.06,12,11.43%,1,5.26%,0.0024%,0.24,0,
+2020-06-08,Age Range,11-20 years,182,12.25%,0.4189%,41.89,14,13.33%,0,0.00%,0.0000%,0,0,
+2020-06-08,Age Range,21-30 years,319,21.47%,0.6396%,63.96,29,27.62%,0,0.00%,0.0000%,0,0,
+2020-06-08,Age Range,31-40 years,364,24.50%,0.7569%,75.69,20,19.05%,1,5.26%,0.0021%,0.21,0,
+2020-06-08,Age Range,41-50 years,210,14.13%,0.4652%,46.52,14,13.33%,2,10.53%,0.0044%,0.44,0,
+2020-06-08,Age Range,51-60 years,141,9.49%,0.2994%,29.94,9,8.57%,1,5.26%,0.0021%,0.21,0,
+2020-06-08,Age Range,61-70 years,77,5.18%,0.1781%,17.81,4,3.81%,6,31.58%,0.0139%,1.39,0,
+2020-06-08,Age Range,71-80 years,27,1.82%,0.0891%,8.91,1,0.95%,5,26.32%,0.0165%,1.65,0,
+2020-06-08,Age Range,81+ years,16,1.08%,0.1058%,10.58,2,1.90%,3,15.79%,0.0198%,1.98,0,
+2020-06-08,Age Range,Pending,7,0.47%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-09,Age Range,0-10 years,147,9.45%,0.3501%,35.01,4,5.71%,1,5.26%,0.0024%,0.24,0,
+2020-06-09,Age Range,11-20 years,189,12.15%,0.4350%,43.5,7,10.00%,0,0.00%,0.0000%,0,0,
+2020-06-09,Age Range,21-30 years,339,21.79%,0.6797%,67.97,20,28.57%,0,0.00%,0.0000%,0,0,
+2020-06-09,Age Range,31-40 years,388,24.94%,0.8068%,80.68,24,34.29%,1,5.26%,0.0021%,0.21,0,
+2020-06-09,Age Range,41-50 years,218,14.01%,0.4829%,48.29,8,11.43%,2,10.53%,0.0044%,0.44,0,
+2020-06-09,Age Range,51-60 years,146,9.38%,0.3100%,31,5,7.14%,1,5.26%,0.0021%,0.21,0,
+2020-06-09,Age Range,61-70 years,78,5.01%,0.1805%,18.05,1,1.43%,6,31.58%,0.0139%,1.39,0,
+2020-06-09,Age Range,71-80 years,27,1.74%,0.0891%,8.91,0,0.00%,5,26.32%,0.0165%,1.65,0,
+2020-06-09,Age Range,81+ years,16,1.03%,0.1058%,10.58,0,0.00%,3,15.79%,0.0198%,1.98,0,
+2020-06-09,Age Range,Pending,8,0.51%,,NA,1,1.43%,0,0.00%,,NA,0,
+2020-06-10,Age Range,0-10 years,161,9.79%,0.3835%,38.35,14,15.73%,1,5.26%,0.0024%,0.24,0,
+2020-06-10,Age Range,11-20 years,202,12.28%,0.4649%,46.49,13,14.61%,0,0.00%,0.0000%,0,0,
+2020-06-10,Age Range,21-30 years,360,21.88%,0.7218%,72.18,21,23.60%,0,0.00%,0.0000%,0,0,
+2020-06-10,Age Range,31-40 years,409,24.86%,0.8505%,85.05,21,23.60%,1,5.26%,0.0021%,0.21,0,
+2020-06-10,Age Range,41-50 years,229,13.92%,0.5073%,50.73,11,12.36%,2,10.53%,0.0044%,0.44,0,
+2020-06-10,Age Range,51-60 years,152,9.24%,0.3228%,32.28,6,6.74%,1,5.26%,0.0021%,0.21,0,
+2020-06-10,Age Range,61-70 years,81,4.92%,0.1874%,18.74,3,3.37%,6,31.58%,0.0139%,1.39,0,
+2020-06-10,Age Range,71-80 years,27,1.64%,0.0891%,8.91,0,0.00%,5,26.32%,0.0165%,1.65,0,
+2020-06-10,Age Range,81+ years,16,0.97%,0.1058%,10.58,0,0.00%,3,15.79%,0.0198%,1.98,0,
+2020-06-10,Age Range,Pending,8,0.49%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-11,Age Range,0-10 years,164,9.69%,0.3906%,39.06,3,6.38%,1,5.26%,0.0024%,0.24,0,
+2020-06-11,Age Range,11-20 years,211,12.47%,0.4856%,48.56,9,19.15%,0,0.00%,0.0000%,0,0,
+2020-06-11,Age Range,21-30 years,368,21.75%,0.7378%,73.78,8,17.02%,0,0.00%,0.0000%,0,0,
+2020-06-11,Age Range,31-40 years,418,24.70%,0.8692%,86.92,9,19.15%,1,5.26%,0.0021%,0.21,0,
+2020-06-11,Age Range,41-50 years,236,13.95%,0.5228%,52.28,7,14.89%,2,10.53%,0.0044%,0.44,0,
+2020-06-11,Age Range,51-60 years,159,9.40%,0.3376%,33.76,7,14.89%,1,5.26%,0.0021%,0.21,0,
+2020-06-11,Age Range,61-70 years,83,4.91%,0.1920%,19.2,2,4.26%,6,31.58%,0.0139%,1.39,0,
+2020-06-11,Age Range,71-80 years,28,1.65%,0.0924%,9.24,1,2.13%,5,26.32%,0.0165%,1.65,0,
+2020-06-11,Age Range,81+ years,17,1.00%,0.1124%,11.24,1,2.13%,3,15.79%,0.0198%,1.98,0,
+2020-06-11,Age Range,Pending,8,0.47%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-12,Age Range,0-10 years,170,9.71%,0.4049%,40.49,6,10.17%,1,5.26%,0.0024%,0.24,0,
+2020-06-12,Age Range,11-20 years,227,12.96%,0.5225%,52.25,16,27.12%,0,0.00%,0.0000%,0,0,
+2020-06-12,Age Range,21-30 years,377,21.53%,0.7559%,75.59,9,15.25%,0,0.00%,0.0000%,0,0,
+2020-06-12,Age Range,31-40 years,431,24.61%,0.8962%,89.62,13,22.03%,1,5.26%,0.0021%,0.21,0,
+2020-06-12,Age Range,41-50 years,245,13.99%,0.5427%,54.27,9,15.25%,2,10.53%,0.0044%,0.44,0,
+2020-06-12,Age Range,51-60 years,162,9.25%,0.3440%,34.4,3,5.08%,1,5.26%,0.0021%,0.21,0,
+2020-06-12,Age Range,61-70 years,85,4.85%,0.1967%,19.67,2,3.39%,6,31.58%,0.0139%,1.39,0,
+2020-06-12,Age Range,71-80 years,29,1.66%,0.0957%,9.57,1,1.69%,5,26.32%,0.0165%,1.65,0,
+2020-06-12,Age Range,81+ years,17,0.97%,0.1124%,11.24,0,0.00%,3,15.79%,0.0198%,1.98,0,
+2020-06-12,Age Range,Pending,8,0.46%,,NA,0,0.00%,0,0.00%,,NA,0,
+2020-06-15,Age Range,0-10 years,181,9.58%,0.4311%,43.11,11,7.97%,1,4.55%,0.0024%,0.24,0,0.00%
+2020-06-15,Age Range,11-20 years,253,13.39%,0.5823%,58.23,26,18.84%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-15,Age Range,21-30 years,410,21.70%,0.8221%,82.21,33,23.91%,0,0.00%,0.0000%,0,0,0.00%
+2020-06-15,Age Range,31-40 years,461,24.40%,0.9586%,95.86,30,21.74%,2,9.09%,0.0042%,0.42,1,33.33%
+2020-06-15,Age Range,41-50 years,266,14.08%,0.5892%,58.92,21,15.22%,2,9.09%,0.0044%,0.44,0,0.00%
+2020-06-15,Age Range,51-60 years,169,8.95%,0.3589%,35.89,7,5.07%,1,4.55%,0.0021%,0.21,0,0.00%
+2020-06-15,Age Range,61-70 years,90,4.76%,0.2082%,20.82,5,3.62%,6,27.27%,0.0139%,1.39,0,0.00%
+2020-06-15,Age Range,71-80 years,32,1.69%,0.1056%,10.56,3,2.17%,7,31.82%,0.0231%,2.31,2,66.67%
+2020-06-15,Age Range,81+ years,19,1.01%,0.1256%,12.56,2,1.45%,3,13.64%,0.0198%,1.98,0,0.00%
+2020-06-15,Age Range,Pending,8,0.42%,,NA,0,0.00%,0,0.00%,,NA,0,0.00%

@@ -161,11 +161,38 @@ write_csv(total, "/Users/peteway/Documents/GitHub/COVID19-Analysis/Data/GlobalDa
 remove(dates, i, num, path, pathdates, yesterdate, keep, multidate, allmatrix)
 ```
 
-
-
-
 ```{r}
 traffic = read.csv("https://internal.chattadata.org/api/views/fpgh-69ti/rows.csv?accessType=DOWNLOAD")
 
 length(unique(traffic$geom))
 ```
+
+
+```{r}
+library(sp)
+library(st)
+library(sf)
+zipshape = read_sf("/Users/peteway/Downloads/tl_2019_47065_faces/tl_2019_47065_faces.shp")
+
+zipshape = zipshape[,c('ZCTA5CE10','geometry')]
+
+colnames(zipshape)[1] = "CAT_DETAIL"
+zipdata = read.csv("/Users/peteway/Downloads/HamiltonCounty_ZipCodes_DemographicsEnrich_TableForPete.csv")
+# zipcases = zipcases[which(zipcases$DATE == '2020-05-27'),]
+colnames(zipdata)[2] = "CAT_DETAIL"
+zipmerge = merge(zipcases, zipdata, by = "CAT_DETAIL")
+colnames(zipmerge) = gsub("X2019.", "",colnames(zipmerge))
+colnames(zipmerge) = gsub("Population...Percent", "Percent", colnames(zipmerge))
+colnames(zipmerge) = gsub("ACS.HHs..Inc.", "", colnames(zipmerge))
+zipshape = zipshape[which(zipshape$CAT_DETAIL %in% zipmerge$CAT_DETAIL),]
+
+zipshape = zipshape %>% 
+  group_by(CAT_DETAIL) %>% 
+  summarise()
+plot(zipshape)
+zipmerge = merge(zipmerge, zipshape, by = "CAT_DETAIL", all.x=TRUE)
+
+zipmerge$CAT_CASES_TOTAL_PERCENT = gsub("%", "", zipmerge$CAT_CASES_TOTAL_PERCENT)
+```
+
+

@@ -675,4 +675,76 @@ ggplot(totalst, aes(State, Average, fill = as.factor(State)) ) + geom_bar(positi
 dev.off()
 ```
 
+```{r}
+grids = read_sf("/Users/peteway/Documents/GitHub/SCAL_USIgnite-911/Excel & CSV Sheets/Shapefiles/HexGrid/HexGrid.shp")
+```
+
+```{r}
+accidents$Date = as.Date(accidents$Date)
+beforeacc = accidents[which(accidents$Date < '2020-03-20' & accidents$Date >= '2020-02-03'),]
+afteracc = accidents[which(accidents$Date >= '2020-03-20' & accidents$Date <= '2020-05-14'),]
+
+# beforeacc = st_intersection(beforeacc, blockstest)
+# afteracc = st_intersection(afteracc, blockstest)
+
+beforetab = as.data.frame(table(beforeacc$Grid_Num))
+aftertab = as.data.frame(table(afteracc$Grid_Num))
+
+colnames(aftertab) = c("Grid_Num", "After")
+colnames(beforetab) = c("Grid_Num", "Before")
+
+grids = as.data.frame(grids)
+colnames(grids) = "Grid_Num"
+
+acc = merge(aftertab, beforetab, by = "Grid_Num")
+
+gridtab = merge(grids, acc, by = "Grid_Num", all.x=TRUE)
+
+gridtab[is.na(gridtab)] = 0
+
+gridtab$Change = gridtab$After/gridtab$Before * 100
+
+gridtab = gridtab[which(!is.na(gridtab$Change)),]
+
+gridtab = merge(gridtab, blockstest, by = "Grid_Num")
+```
+
+```{r}
+library(ggmap)
+library(ggplot2)
+gridtab = st_as_sf(gridtab)
+
+
+box = st_bbox(increase)
+box
+
+bb<- make_bbox(lat=c(box['ymin'],box['ymax']),lon=c(box['xmin'],box['xmax']), f=0.05)
+bb
+zoomed = calc_zoom(bb)
+zoomed
+register_google("AIzaSyCdi7_sZmNl3ost3hiex_IplIDS-WP1QHM")
+cda<-get_map(bb,zoom=zoomed,maptype="roadmap", source='google') 
+# increase = gridtab[which(gridtab$Change > 500),]
+
+
+png(paste("/Users/peteway/Downloads/Work/ChangeinAccidents-Percent.png",sep=""), width=10,height=3,units='in', res=600,bg = 'transparent')
+ggmap(cda) + scale_fill_gradient(low = "blue", high = "red", name = "Percent Increase") + geom_sf(data=increase, aes(fill=Change),inherit.aes = FALSE) + xlab("Longitude")+ ylab("Latitude") + transparent
+dev.off()
+
+decrease = gridtab[which(gridtab$Change < 100),]
+
+
+png(paste("/Users/peteway/Downloads/Work/ChangeinAccidents-PercentDecreased.png",sep=""), width=9,height=6,units='in', res=600,bg = 'transparent')
+ggmap(cda) + scale_fill_gradient(low = "blue", high = "red", name = "Percent Decrease",limits=c(0,100)) + geom_sf(data=decrease, aes(fill=100-Change),inherit.aes = FALSE) + xlab("Longitude")+ ylab("Latitude") + transparent
+dev.off()
+
+```
+
+```{r}
+beforedates = length(unique(beforeacc$Date))
+afterdates = length(unique(afteracc$Date))
+gridtab$Before = gridtab$Before/beforedates
+gridtab$After = gridtab$After/afterdates
+                     
+```
 

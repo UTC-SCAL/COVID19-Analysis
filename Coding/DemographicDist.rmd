@@ -301,3 +301,52 @@ animate(anim, 500, fps = 20,  width = 1500, height = 1000, end_pause=20,
 
 ```
 
+```{r}
+# libraries:
+library(ggplot2)
+library(gganimate)
+library(hrbrthemes)
+library(viridis)
+library(tidyr)
+
+data = countytable[which(countytable$COUNTY == 'Hamilton'),c('DATE','TOTAL_CASES','TOTAL_TESTS')]
+data = data[complete.cases(data$TOTAL_TESTS),]
+data$DATE = as.Date(data$DATE)
+data_long = gather(data, Value, Total, TOTAL_CASES:TOTAL_TESTS, factor_key=TRUE)
+  
+# # Plot
+# data_long %>%
+#   ggplot( aes(x=DATE, y=Total, group=Value, color=Value), lwd=2) +
+#     geom_line() +
+#     geom_point() +
+#     scale_color_viridis(discrete = TRUE) +
+#     ggtitle("CASES VERSUS TESTS") +
+#     theme_ipsum() +
+#     ylab("Total Count") +
+#      transition_reveal(DATE) + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + theme(axis.text.x = element_text(angle = 90, size=2),axis.text.y = element_text(size=2), legend.direction = 'horizontal', legend.position = 'bottom') +   scale_y_continuous(labels = scales::comma, limits = c(min(as.numeric(data_long$Value/2)), max(as.numeric(data_long$Value/2))))
+# 
+# 
+# anim_save("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Testing.gif")
+# theme_set(theme_gray(base_size = 30))
+
+
+anim = data_long %>%
+  ggplot( aes(x=DATE, y=Total, group=Value, color=Value)) +
+    geom_line(lwd=2) +
+    geom_point(size=4) +
+    # scale_color_viridis(discrete = TRUE) +
+    ggtitle("CASES VERSUS TESTS") +
+    theme_ipsum() +
+    ylab("Total Count") +
+    transition_reveal(DATE) + theme(axis.text.x = element_text(angle = 90), legend.direction = 'horizontal', legend.position = 'top',text=element_text(size=15)) + view_follow() + scale_x_date(date_labels="%b %d",date_breaks  ="1 week") + scale_color_discrete(name = "Totals", labels = c("Cases", "Tests"))
+
+animate(anim, 120, fps = 10,  width = 1000, height = 800, end_pause=20,
+        renderer = gifski_renderer("/Users/peteway/Documents/GitHub/COVID19-Analysis/Visualization/Testing.gif"))
+# +   scale_y_continuous(labels = scales::comma, limits = c(min(as.numeric(data_long$Value/2)), max(as.numeric(data_long$Value/2))))
+
+
+```
+
+```{r}
+```
+
